@@ -19,10 +19,10 @@ function Home() {
               Building dreams with military precision. Residential and commercial construction
               services delivered with discipline, integrity, and unmatched attention to detail.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:mt-0 mt-auto pb-16 md:pb-0">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:mt-0 mt-auto pb-24 md:pb-0 fixed bottom-0 left-0 right-0 md:static bg-gradient-to-t from-black/80 to-transparent md:bg-none px-4 pt-12 md:pt-0 md:px-0">
               <Link 
                 to="/consultation" 
-                className="btn-primary inline-flex items-center justify-center group text-lg"
+                className="btn-primary inline-flex items-center justify-center group text-lg w-full md:w-auto"
               >
                 Book a Consultation
                 <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
