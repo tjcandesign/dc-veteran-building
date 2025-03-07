@@ -6,13 +6,13 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-dark-brown text-white py-32 overflow-hidden">
+      <section className="relative bg-dark-brown text-white min-h-[100vh] md:min-h-0 md:py-32 overflow-hidden flex items-center">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541976590-713941681591')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
         <div className="container relative">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Veteran-Owned Construction Excellence in DC
+              From Service to Structure: Veteran-Built Excellence
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
               Building dreams with military precision. Residential and commercial construction
