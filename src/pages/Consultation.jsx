@@ -100,7 +100,7 @@ export default function Consultation() {
       <section className="section">
         <div className="container max-w-7xl">
           {/* Progress Steps */}
-          <div className="flex justify-between mb-8">
+          <div className="flex justify-center gap-4 mb-6">
             {[1, 2, 3].map((number) => (
               <div
                 key={number}
@@ -110,18 +110,18 @@ export default function Consultation() {
                 })}
               >
                 <div
-                  className={classNames('w-8 h-8 rounded-full flex items-center justify-center', {
+                  className={classNames('w-6 h-6 rounded-full flex items-center justify-center text-sm', {
                     'bg-primary text-white': step >= number,
                     'bg-gray-200': step < number
                   })}
                 >
                   {number}
                 </div>
-                <span className="ml-2 font-medium">
+                <span className="ml-1.5 text-sm font-medium">
                   {number === 1 ? 'Select Package' : number === 2 ? 'Choose Time' : 'Payment'}
                 </span>
                 {number < 3 && (
-                  <div className="w-16 h-1 mx-3 bg-gray-200">
+                  <div className="w-12 h-0.5 mx-2 bg-gray-200">
                     <div
                       className={classNames('h-full bg-primary transition-all', {
                         'w-full': step > number,
