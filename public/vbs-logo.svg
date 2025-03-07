@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon background -->
+  <path d="M60 10L105 35V85L60 110L15 85V35L60 10Z" 
+        fill="#34241d" stroke="#ed6f3e" stroke-width="4"/>
+  
+  <!-- VBS text -->
+  <text x="60" y="70" 
+        font-family="Arial, sans-serif" 
+        font-weight="bold" 
+        font-size="32" 
+        text-anchor="middle" 
+        fill="#ed6f3e">
+    VBS
+  </text>
+</svg>
