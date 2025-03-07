@@ -186,7 +186,7 @@ function Home() {
           alt="Start Your Project Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-primary opacity-80 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-primary opacity-90 mix-blend-multiply"></div>
         <div className="w-full px-4 xl:px-24 mx-auto text-center relative z-10">
           <h2 className="text-5xl font-bold mb-8">Ready to Start Your Project?</h2>
           <p className="text-2xl mb-10 max-w-2xl mx-auto">
@@ -195,7 +195,7 @@ function Home() {
           </p>
           <Link
             to="/consultation"
-            className="bg-white text-primary px-10 py-4 rounded-lg text-xl font-bold hover:bg-opacity-90 transition-all inline-block"
+            className="bg-white text-dark-brown px-10 py-4 rounded-lg text-xl font-bold hover:bg-opacity-90 transition-all inline-block"
           >
             Schedule Your Project Review
           </Link>
