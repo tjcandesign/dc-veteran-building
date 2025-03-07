@@ -26,12 +26,6 @@ function Home() {
                 Book a Consultation
                 <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link 
-                to="/gallery" 
-                className="text-white border-2 border-white px-6 py-3 rounded-lg hover:bg-white hover:text-dark-brown transition-all inline-flex items-center justify-center font-semibold"
-              >
-                View Our Work
-              </Link>
             </div>
           </div>
         </div>
@@ -162,65 +156,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="section bg-white">
-        <div className="container">
-          <h2 className="text-4xl font-bold text-center mb-6">Featured Projects</h2>
-          <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Explore our latest transformations and see how we bring visions to life.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/custom-home.jpg"
-                alt="Custom Home Project"
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="text-xl font-bold mb-2">Custom Home Build</h3>
-                  <p className="text-sm">Modern design meets comfort in this custom-built residence.</p>
-                </div>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/kitchen-renovation.jpg"
-                alt="Kitchen Renovation"
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="text-xl font-bold mb-2">Kitchen Renovation</h3>
-                  <p className="text-sm">A stunning transformation of a dated kitchen into a modern culinary haven.</p>
-                </div>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/images/office-buildout.jpg"
-                alt="Office Buildout"
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="text-xl font-bold mb-2">Commercial Office Buildout</h3>
-                  <p className="text-sm">Creating productive and inspiring workspaces for modern businesses.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              to="/gallery"
-              className="inline-flex items-center text-primary font-semibold hover:text-dark-brown transition-colors group"
-            >
-              View All Projects
-              <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Service Area */}
       <section className="section bg-cream">
