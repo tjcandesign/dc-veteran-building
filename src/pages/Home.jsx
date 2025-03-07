@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-dark-brown text-white min-h-[100vh] md:min-h-0 xl:min-h-[90vh] md:py-32 overflow-hidden flex items-start md:items-center pt-16 md:pt-0">
+      <section className="relative bg-dark-brown text-white min-h-[100vh] md:min-h-0 xl:min-h-[90vh] md:py-32 overflow-hidden flex items-start md:items-center pt-24 md:pt-0">
         <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center md:bg-fixed"></div>
         <div className="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
@@ -19,7 +19,7 @@ function Home() {
               Building dreams with military precision. Residential and commercial construction
               services delivered with discipline, integrity, and unmatched attention to detail.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:mt-0 mt-auto pb-24 md:pb-0 fixed bottom-0 left-0 right-0 md:static bg-gradient-to-t from-black/80 to-transparent md:bg-none px-4 pt-12 md:pt-0 md:px-0">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:mt-0 mt-auto pb-32 md:pb-0 fixed bottom-0 left-0 right-0 md:static bg-gradient-to-t from-black/80 to-transparent md:bg-none px-4 pt-16 md:pt-0 md:px-0">
               <Link 
                 to="/consultation" 
                 className="btn-primary inline-flex items-center justify-center group text-lg w-full md:w-auto"
