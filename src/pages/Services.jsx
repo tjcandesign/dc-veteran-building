@@ -77,7 +77,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
+                className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
                 style={{
                   backgroundImage: `url('/images/${service.title === 'Commercial Construction' ? 'Commerical' : 
                     service.title === 'Design Services' ? 'Design services' : 
@@ -88,13 +88,13 @@ export default function Services() {
                 }}
               >
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors"></div>
+                <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  <service.icon className="h-12 w-12 text-primary mb-6" />
-                  <h2 className="text-2xl font-bold mb-4 text-white">{service.title}</h2>
-                  <p className="text-gray-200 mb-6">{service.description}</p>
+                  <service.icon className="h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <h2 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h2>
+                  <p className="text-gray-100 mb-6">{service.description}</p>
                   <ul className="space-y-3">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center text-white">
