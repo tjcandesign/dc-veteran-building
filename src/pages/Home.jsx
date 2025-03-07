@@ -19,7 +19,7 @@ function Home() {
               Building dreams with military precision. Residential and commercial construction
               services delivered with discipline, integrity, and unmatched attention to detail.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:mt-0 mt-auto pb-32 md:pb-0 fixed bottom-0 left-0 right-0 md:static bg-gradient-to-t from-black/80 to-transparent md:bg-none px-4 pt-16 md:pt-0 md:px-0 z-50">
+            <div className="hidden md:block">
               <Link 
                 to="/consultation" 
                 className="btn-primary inline-flex items-center justify-center group text-lg w-full md:w-auto"
@@ -33,7 +33,7 @@ function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="section bg-cream">
+      <section className="section bg-cream pb-32 md:pb-24">
         <div className="w-full px-4 xl:px-24 mx-auto">
           <h2 className="heading-2 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl">
@@ -155,23 +155,34 @@ function Home() {
         </div>
       </section>
 
+      {/* Mobile CTA Button */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-black/90 to-transparent pt-16 pb-8 px-4">
+        <Link 
+          to="/consultation" 
+          className="btn-primary inline-flex items-center justify-center group text-lg w-full"
+        >
+          Schedule Project Review
+          <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+
       {/* Why Choose Us */}
       <section className="py-20 md:py-32 bg-dark-brown text-white">
         <div className="w-full px-4 xl:px-24 mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Veterans Building Service Difference</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
+              <ShieldCheckIcon className="h-16 w-16 text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-4">Veteran-Owned</h3>
               <p>Our company is founded on military values, bringing discipline, leadership, and excellence to every project we undertake.</p>
             </div>
             <div>
-              <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
+              <ShieldCheckIcon className="h-16 w-16 text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-4">Quality Guaranteed</h3>
               <p>We stand behind our work with comprehensive warranty coverage and an unwavering commitment to excellence.</p>
             </div>
             <div>
-              <TrophyIcon className="h-16 w-16 text-primary mx-auto mb-4" />
+              <TrophyIcon className="h-16 w-16 text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-4">Award-Winning Service</h3>
               <p>Our team has been recognized for outstanding craftsmanship and consistently delivering exceptional customer satisfaction.</p>
             </div>
