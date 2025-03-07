@@ -180,16 +180,17 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-dark-brown">
-        <div className="w-full px-4 xl:px-24 mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+      <section className="relative min-h-[600px] flex items-center bg-primary text-dark-brown overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/start your project.png')] bg-cover bg-center mix-blend-multiply opacity-90"></div>
+        <div className="w-full px-4 xl:px-24 mx-auto text-center relative z-10">
+          <h2 className="text-5xl font-bold mb-8">Ready to Start Your Project?</h2>
+          <p className="text-2xl mb-10 max-w-2xl mx-auto">
             From concept to completion, we're here to bring your vision to life with military precision
             and unmatched craftsmanship.
           </p>
           <Link
             to="/consultation"
-            className="bg-dark-brown text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-black hover:scale-[1.02] transition-all"
+            className="bg-dark-brown text-white px-10 py-4 rounded-lg text-xl font-bold hover:bg-black hover:scale-[1.02] transition-all inline-block"
           >
             Schedule Your Project Review
           </Link>
