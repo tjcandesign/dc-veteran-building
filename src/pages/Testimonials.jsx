@@ -9,6 +9,7 @@ export default function Testimonials() {
       project: "Kitchen Renovation",
       location: "Washington DC",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face",
       content: "DC Veteran Building Services transformed our outdated kitchen into a modern masterpiece. Their attention to detail and communication throughout the project was exceptional. The team's military precision was evident in every aspect of the work."
     },
     {
@@ -17,6 +18,7 @@ export default function Testimonials() {
       project: "Commercial Office Build-Out",
       location: "Arlington, VA",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
       content: "As a business owner, I appreciated their disciplined approach to our office renovation. They stayed on schedule, within budget, and the quality of work exceeded our expectations. Their veteran-led team brings a level of professionalism that's hard to find."
     },
     {
@@ -25,6 +27,7 @@ export default function Testimonials() {
       project: "Custom Home Build",
       location: "Bethesda, MD",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
       content: "Building our dream home with DC Veteran Building Services was an incredible experience. Their team guided us through every step, from design to completion. The quality of craftsmanship and attention to detail is outstanding."
     },
     {
@@ -33,6 +36,7 @@ export default function Testimonials() {
       project: "Bathroom Remodel",
       location: "Alexandria, VA",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       content: "The team's military background shows in their precision and organization. Our bathroom remodel was completed on time and the results are stunning. Their commitment to excellence is unmatched."
     },
     {
@@ -41,6 +45,7 @@ export default function Testimonials() {
       project: "Restaurant Renovation",
       location: "Washington DC",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
       content: "Our restaurant renovation was a complex project with tight deadlines. The team's military-style project management ensured everything ran smoothly. They were professional, efficient, and delivered exceptional results."
     },
     {
@@ -49,6 +54,7 @@ export default function Testimonials() {
       project: "Home Addition",
       location: "Silver Spring, MD",
       rating: 5,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       content: "Adding an extension to our home was a big decision, but DC Veteran Building Services made the process seamless. Their transparent communication and quality workmanship gave us complete confidence throughout the project."
     }
   ];
@@ -72,17 +78,20 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, index) => (
-                    <StarIcon key={index} className="h-5 w-5 text-primary" />
-                  ))}
+                <div className="flex items-start gap-4 mb-6">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20" />
+                  <div>
+                    <p className="font-bold text-lg">{testimonial.name}</p>
+                    <p className="text-gray-600 text-sm">{testimonial.project}</p>
+                    <p className="text-gray-600 text-sm mb-2">{testimonial.location}</p>
+                    <div className="flex">
+                      {[...Array(testimonial.rating)].map((_, index) => (
+                        <StarIcon key={index} className="h-5 w-5 text-primary" />
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <p className="mb-4 italic">"{testimonial.content}"</p>
-                <div className="border-t pt-4">
-                  <p className="font-bold">{testimonial.name}</p>
-                  <p className="text-gray-600">{testimonial.project}</p>
-                  <p className="text-gray-600">{testimonial.location}</p>
-                </div>
+                <p className="italic text-gray-700 leading-relaxed">"{testimonial.content}"</p>
               </div>
             ))}
           </div>
