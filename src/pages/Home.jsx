@@ -41,9 +41,9 @@ function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-center mb-6">
-                <HomeIcon className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="heading-3">Residential Construction</h3>
+              <div className="flex items-center mb-6">
+                <HomeIcon className="h-12 w-12 text-primary mr-4" />
+                <h3 className="heading-3">Residential</h3>
               </div>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
@@ -68,8 +68,8 @@ function Home() {
               </Link>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-center mb-6">
-                <BuildingOfficeIcon className="h-12 w-12 text-primary mx-auto mb-4" />
+              <div className="flex items-center mb-6">
+                <BuildingOfficeIcon className="h-12 w-12 text-primary mr-4" />
                 <h3 className="heading-3">Commercial Projects</h3>
               </div>
               <ul className="space-y-3 text-gray-600">
@@ -95,8 +95,8 @@ function Home() {
               </Link>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-center mb-6">
-                <WrenchScrewdriverIcon className="h-12 w-12 text-primary mx-auto mb-4" />
+              <div className="flex items-center mb-6">
+                <WrenchScrewdriverIcon className="h-12 w-12 text-primary mr-4" />
                 <h3 className="heading-3">Specialized Services</h3>
               </div>
               <ul className="space-y-3 text-gray-600">
