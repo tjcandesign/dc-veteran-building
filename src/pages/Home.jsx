@@ -50,7 +50,7 @@ function Home() {
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10 h-full flex flex-col">
-                <div className="flex flex-col items-center mb-8 text-center">
+                <div className="flex flex-col mb-8">
                   <HomeIcon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Residential</h3>
                 </div>
@@ -87,7 +87,7 @@ function Home() {
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10 h-full flex flex-col">
-                <div className="flex flex-col items-center mb-8 text-center">
+                <div className="flex flex-col mb-8">
                   <BuildingOfficeIcon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Commercial Projects</h3>
                 </div>
@@ -124,7 +124,7 @@ function Home() {
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10 h-full flex flex-col">
-                <div className="flex flex-col items-center mb-8 text-center">
+                <div className="flex flex-col mb-8">
                   <WrenchScrewdriverIcon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Specialized Services</h3>
                 </div>

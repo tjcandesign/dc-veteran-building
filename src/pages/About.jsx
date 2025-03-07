@@ -73,7 +73,7 @@ export default function About() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Project Operators</h3>
                 <p className="text-gray-100">Experienced professionals managing every aspect of your project.</p>
               </div>
@@ -87,7 +87,7 @@ export default function About() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Skilled Craftsmen</h3>
                 <p className="text-gray-100">Expert builders bringing your vision to life with precision.</p>
               </div>
@@ -101,7 +101,7 @@ export default function About() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Design Team</h3>
                 <p className="text-gray-100">Creative professionals helping shape your perfect space.</p>
               </div>
@@ -115,7 +115,7 @@ export default function About() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+              <div className="relative z-10 h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Support Staff</h3>
                 <p className="text-gray-100">Dedicated team ensuring smooth project coordination.</p>
               </div>

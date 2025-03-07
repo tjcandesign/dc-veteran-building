@@ -122,6 +122,67 @@ export default function Testimonials() {
         </div>
       </section>
 
+      {/* Share Your Experience Section */}
+      <section className="section bg-dark-brown text-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6">Share Your Experience</h2>
+            <p className="text-xl mb-8">
+              Love our work? We'd love to hear about your experience and see photos of your finished project! 
+              Your feedback helps us improve, and your project photos could be featured in our gallery.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-4 text-primary">Leave a Review</h3>
+                <p className="mb-6">Share your experience with our services and help future clients make informed decisions.</p>
+                <Link
+                  to="/contact?type=review"
+                  className="btn-primary inline-flex items-center group"
+                >
+                  Submit Review
+                  <svg
+                    className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </Link>
+              </div>
+              <div className="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-4 text-primary">Share Project Photos</h3>
+                <p className="mb-6">Proud of your finished project? Send us photos to be featured in our gallery!</p>
+                <Link
+                  to="/contact?type=photos"
+                  className="btn-primary inline-flex items-center group"
+                >
+                  Submit Photos
+                  <svg
+                    className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section bg-primary text-white">
         <div className="container text-center">
