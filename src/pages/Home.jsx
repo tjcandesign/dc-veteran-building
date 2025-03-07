@@ -159,7 +159,7 @@ function Home() {
           </p>
           <Link
             to="/consultation"
-            className="bg-white text-primary px-8 py-3 rounded-lg text-lg font-bold hover:bg-opacity-90 transition-all"
+            className="bg-dark-brown text-primary px-8 py-3 rounded-lg text-lg font-bold hover:bg-opacity-90 transition-all"
           >
             Schedule Your Project Review
           </Link>
