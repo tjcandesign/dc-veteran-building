@@ -79,7 +79,10 @@ export default function Services() {
                 key={index} 
                 className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
                 style={{
-                  backgroundImage: `url('/images/${service.title.toLowerCase().replace(/ /g, '')}.png')`,
+                  backgroundImage: `url('/images/${service.title === 'Commercial Construction' ? 'Commerical' : 
+                    service.title === 'Design Services' ? 'Design services' : 
+                    service.title === 'Specialized Services' ? 'specialized services' : 
+                    'residential'}.png')`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
