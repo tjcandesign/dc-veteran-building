@@ -107,8 +107,8 @@ export default function Footer() {
           {/* Contact & CTA */}
           <div>
             <h3 className="text-xl font-bold mb-6">Get Started</h3>
-            <div className="bg-primary/10 rounded-lg p-6">
-              <p className="mb-6 text-gray-300">
+            <div>
+              <p className="mb-6 text-dark-brown">
                 Ready to transform your space? Book a consultation with our experts today.
               </p>
               <Link

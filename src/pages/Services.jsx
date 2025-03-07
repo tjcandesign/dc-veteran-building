@@ -94,7 +94,7 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="section bg-cream">
+      <section className="section bg-cream mb-[75px]">
         <div className="container">
           <h2 className="text-4xl font-bold text-center mb-12">Our Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
