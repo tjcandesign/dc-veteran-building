@@ -150,7 +150,7 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-primary text-white">
+      <section className="py-20 md:py-32 bg-primary text-dark-brown">
         <div className="w-full px-4 xl:px-24 mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -159,7 +159,7 @@ function Home() {
           </p>
           <Link
             to="/consultation"
-            className="bg-dark-brown text-primary px-8 py-3 rounded-lg text-lg font-bold hover:bg-black hover:scale-[1.02] transition-all"
+            className="bg-dark-brown text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-black hover:scale-[1.02] transition-all"
           >
             Schedule Your Project Review
           </Link>
