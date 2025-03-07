@@ -10,7 +10,7 @@ function Home() {
         <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
-        <div className="w-full px-4 mx-auto relative">
+        <div className="w-full px-4 xl:px-24 mx-auto relative">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               From Service to Structure: Veteran-Built Excellence
@@ -34,7 +34,7 @@ function Home() {
 
       {/* Services Overview */}
       <section className="section bg-cream">
-        <div className="w-full px-4 mx-auto">
+        <div className="w-full px-4 xl:px-24 mx-auto">
           <h2 className="heading-2 text-center mb-4">Our Services</h2>
           <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
             Comprehensive construction solutions tailored to your needs, delivered with military precision and exceptional craftsmanship.
@@ -118,7 +118,7 @@ function Home() {
 
       {/* Why Choose Us */}
       <section className="section bg-dark-brown text-white">
-        <div className="w-full px-4 mx-auto">
+        <div className="w-full px-4 xl:px-24 mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">The VBS Difference</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
@@ -142,7 +142,7 @@ function Home() {
 
       {/* CTA Section */}
       <section className="section bg-primary text-white">
-        <div className="w-full px-4 mx-auto text-center">
+        <div className="w-full px-4 xl:px-24 mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             From concept to completion, we're here to bring your vision to life with military precision
@@ -161,7 +161,7 @@ function Home() {
 
       {/* Service Area */}
       <section className="section bg-cream">
-        <div className="w-full px-4 mx-auto">
+        <div className="w-full px-4 xl:px-24 mx-auto">
           <h2 className="text-4xl font-bold text-center mb-6">Our Service Area</h2>
           <p className="text-xl text-center text-gray-600 mb-12">
             Proudly serving Washington DC, Maryland, and Virginia with exceptional construction services.
