@@ -6,11 +6,11 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-dark-brown text-white min-h-[100vh] md:min-h-0 xl:min-h-[90vh] md:py-32 overflow-hidden flex items-start md:items-center pt-24 md:pt-0">
+      <section className="relative bg-dark-brown text-white min-h-[90vh] md:py-32 overflow-hidden flex items-start md:items-center pt-24 md:pt-0">
         <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center md:bg-fixed"></div>
         <div className="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
-        <div className="w-full px-4 xl:px-24 mx-auto relative min-h-[calc(100vh-4rem)] md:min-h-0 flex flex-col justify-between">
+        <div className="w-full px-4 xl:px-24 mx-auto relative min-h-[90vh] flex flex-col justify-between">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-[1] md:leading-tight drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]">
               <span className="text-primary">From Service to Structure:</span> <span className="text-white">Veteran-Built Excellence</span>
