@@ -213,9 +213,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="/images/dc-map.svg"
+                  src="/images/washingtondc.png"
                   alt="Washington DC Map"
-                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
+                  className="w-full h-48 object-cover rounded-lg"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Washington DC</h3>
@@ -224,9 +224,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="/images/maryland-map.svg"
+                  src="/images/maryland.png"
                   alt="Maryland Map"
-                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
+                  className="w-full h-48 object-cover rounded-lg"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Maryland</h3>
@@ -235,9 +235,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="/images/virginia-map.svg"
+                  src="/images/virginia.png"
                   alt="Virginia Map"
-                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
+                  className="w-full h-48 object-cover rounded-lg"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Virginia</h3>
