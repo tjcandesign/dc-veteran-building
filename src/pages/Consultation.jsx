@@ -239,7 +239,7 @@ export default function Consultation() {
               <h2 className="text-3xl font-bold text-center mb-8">
                 Select Your Preferred Date and Time
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1600px] mx-auto px-8">
                 <div>
                   <Calendar
                     onChange={setSelectedDate}
@@ -419,7 +419,7 @@ export default function Consultation() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between mt-12">
+          <div className="flex justify-between mt-12 max-w-[1600px] mx-auto px-8">
             {step > 1 && (
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
