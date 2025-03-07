@@ -7,7 +7,8 @@ function Home() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-dark-brown text-white min-h-[100vh] md:min-h-0 md:py-32 overflow-hidden flex items-center">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541976590-713941681591')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
         <div className="w-full px-4 mx-auto relative">
           <div className="max-w-3xl">
