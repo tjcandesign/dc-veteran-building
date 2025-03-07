@@ -75,18 +75,32 @@ export default function Services() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
-                <service.icon className="h-12 w-12 text-primary mb-6" />
-                <h2 className="text-2xl font-bold mb-4">{service.title}</h2>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-center">
-                      <span className="h-2 w-2 bg-primary rounded-full mr-3"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <div 
+                key={index} 
+                className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
+                style={{
+                  backgroundImage: `url('/images/${service.title.toLowerCase().replace(/ /g, '')}.png')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors"></div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <service.icon className="h-12 w-12 text-primary mb-6" />
+                  <h2 className="text-2xl font-bold mb-4 text-white">{service.title}</h2>
+                  <p className="text-gray-200 mb-6">{service.description}</p>
+                  <ul className="space-y-3">
+                    {service.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-center text-white">
+                        <span className="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
