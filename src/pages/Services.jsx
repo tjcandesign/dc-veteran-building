@@ -106,7 +106,7 @@ export default function Services() {
                     ))}
                   </ul>
                   <Link 
-                    to="#" 
+                    to={`#${service.title.toLowerCase().split(' ')[0]}`}
                     className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group"
                   >
                     Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
