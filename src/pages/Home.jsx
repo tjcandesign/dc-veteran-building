@@ -213,34 +213,37 @@ function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">
+              <div className="mb-6 relative">
                 <img
                   src="/images/washingtondc.png"
                   alt="Washington DC Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
+                <div className="absolute inset-0 bg-primary opacity-40 mix-blend-multiply rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Washington DC</h3>
               <p className="text-gray-600">Full service coverage throughout the District of Columbia</p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">
+              <div className="mb-6 relative">
                 <img
                   src="/images/maryland.png"
                   alt="Maryland Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
+                <div className="absolute inset-0 bg-primary opacity-40 mix-blend-multiply rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Maryland</h3>
               <p className="text-gray-600">Serving Montgomery and Prince George's Counties</p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">
+              <div className="mb-6 relative">
                 <img
                   src="/images/virginina.png"
                   alt="Virginia Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
+                <div className="absolute inset-0 bg-primary opacity-40 mix-blend-multiply rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Virginia</h3>
               <p className="text-gray-600">Available in Arlington, Alexandria, and Fairfax</p>
