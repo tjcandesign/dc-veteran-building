@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ClipboardDocumentListIcon, CurrencyDollarIcon, ClockIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, CalendarIcon } from '@heroicons/react/24/outline';
 import 'react-calendar/dist/Calendar.css';
+import classNames from 'classnames';
 
 // Custom calendar styles
 import './Calendar.css';
@@ -103,14 +104,16 @@ export default function Consultation() {
             {[1, 2, 3].map((number) => (
               <div
                 key={number}
-                className={\`flex items-center \${
-                  step >= number ? 'text-primary' : 'text-gray-400'
-                }\`}
+                className={classNames('flex items-center', {
+                  'text-primary': step >= number,
+                  'text-gray-400': step < number
+                })}
               >
                 <div
-                  className={\`w-8 h-8 rounded-full flex items-center justify-center \${
-                    step >= number ? 'bg-primary text-white' : 'bg-gray-200'
-                  }\`}
+                  className={classNames('w-8 h-8 rounded-full flex items-center justify-center', {
+                    'bg-primary text-white': step >= number,
+                    'bg-gray-200': step < number
+                  })}
                 >
                   {number}
                 </div>
@@ -120,9 +123,10 @@ export default function Consultation() {
                 {number < 3 && (
                   <div className="w-24 h-1 mx-4 bg-gray-200">
                     <div
-                      className={\`h-full bg-primary transition-all \${
-                        step > number ? 'w-full' : 'w-0'
-                      }\`}
+                      className={classNames('h-full bg-primary transition-all', {
+                        'w-full': step > number,
+                        'w-0': step <= number
+                      })}
                     ></div>
                   </div>
                 )}
@@ -199,95 +203,64 @@ export default function Consultation() {
                 Select Your Preferred Date and Time
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <h3 className="text-xl font-bold mb-4 flex items-center text-gray-800">
-                    <CalendarIcon className="w-6 h-6 mr-2 text-primary" />
-                    Select Date
-                  </h3>
+                <div>
                   <Calendar
                     onChange={setSelectedDate}
                     value={selectedDate}
                     minDate={new Date()}
-                    className="w-full rounded-lg border-none"
-                    tileClassName={({ date }) => 
-                      date.toDateString() === selectedDate.toDateString() 
-                        ? 'bg-primary text-white rounded-lg !important'
-                        : ''
-                    }
+                    className="w-full"
                   />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <h3 className="text-xl font-bold mb-4 flex items-center text-gray-800">
-                    <ClockIcon className="w-6 h-6 mr-2 text-primary" />
-                    Available Time Slots
-                  </h3>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Available Times for {selectedDate.toLocaleDateString()}</h3>
                   <div className="grid grid-cols-2 gap-4">
-                    {timeSlots.map((time, index) => (
+                    {timeSlots.map((time) => (
                       <motion.button
                         key={time}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 + 0.4 }}
-                        whileHover={{ scale: 1.05, backgroundColor: 'rgb(var(--color-primary) / 0.1)' }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-4 py-3 rounded-lg border-2 border-gray-200 hover:border-primary transition-all flex items-center justify-center space-x-2 group"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center justify-center space-x-2 px-4 py-3 border-2 border-gray-200 rounded-lg hover:border-primary hover:text-primary transition-colors"
                         onClick={() => setStep(3)}
                       >
-                        <ClockIcon className="w-5 h-5 text-gray-500 group-hover:text-primary transition-colors" />
-                        <span className="font-medium group-hover:text-primary transition-colors">{time}</span>
+                        <ClockIcon className="w-5 h-5" />
+                        <span>{time}</span>
                       </motion.button>
                     ))}
                   </div>
-                  <p className="mt-6 text-sm text-gray-500 text-center">
-                    Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}
 
-          {/* Step 3: Contact Information and Payment */}
+          {/* Step 3: Contact Information */}
           {step === 3 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="max-w-2xl mx-auto"
             >
               <h2 className="text-3xl font-bold text-center mb-8">
                 Complete Your Booking
               </h2>
-              <motion.form 
-                onSubmit={handleSubmit(onSubmit)} 
-                className="space-y-6 bg-white p-8 rounded-xl shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-700">
+                    <label className="block text-gray-700 font-medium mb-2">
                       First Name
                     </label>
                     <input
                       type="text"
-                      {...register('firstName', { 
+                      {...register('firstName', {
                         required: 'First name is required',
-                        minLength: { value: 2, message: 'First name must be at least 2 characters' }
+                        minLength: {
+                          value: 2,
+                          message: 'First name must be at least 2 characters'
+                        }
                       })}
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
-                        errors.firstName ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={classNames('w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors', {
+                        'border-red-500': errors.firstName,
+                        'border-gray-200': !errors.firstName
+                      })}
                       placeholder="John"
                     />
                     {errors.firstName && (
@@ -295,18 +268,22 @@ export default function Consultation() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-700">
+                    <label className="block text-gray-700 font-medium mb-2">
                       Last Name
                     </label>
                     <input
                       type="text"
-                      {...register('lastName', { 
+                      {...register('lastName', {
                         required: 'Last name is required',
-                        minLength: { value: 2, message: 'Last name must be at least 2 characters' }
+                        minLength: {
+                          value: 2,
+                          message: 'Last name must be at least 2 characters'
+                        }
                       })}
-                      className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
-                        errors.lastName ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={classNames('w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors', {
+                        'border-red-500': errors.lastName,
+                        'border-gray-200': !errors.lastName
+                      })}
                       placeholder="Doe"
                     />
                     {errors.lastName && (
@@ -316,21 +293,22 @@ export default function Consultation() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Email Address
                   </label>
                   <input
                     type="email"
-                    {...register('email', { 
+                    {...register('email', {
                       required: 'Email is required',
-                      pattern: { 
+                      pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         message: 'Invalid email address'
                       }
                     })}
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
-                      errors.email ? 'border-red-500' : 'border-gray-200'
-                    }`}
+                    className={classNames('w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors', {
+                      'border-red-500': errors.email,
+                      'border-gray-200': !errors.email
+                    })}
                     placeholder="john.doe@example.com"
                   />
                   {errors.email && (
@@ -339,21 +317,22 @@ export default function Consultation() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Phone Number
                   </label>
                   <input
                     type="tel"
-                    {...register('phone', { 
+                    {...register('phone', {
                       required: 'Phone number is required',
-                      pattern: { 
+                      pattern: {
                         value: /^[\d\s-+()]*$/,
                         message: 'Invalid phone number'
                       }
                     })}
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
-                      errors.phone ? 'border-red-500' : 'border-gray-200'
-                    }`}
+                    className={classNames('w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors', {
+                      'border-red-500': errors.phone,
+                      'border-gray-200': !errors.phone
+                    })}
                     placeholder="(123) 456-7890"
                   />
                   {errors.phone && (
@@ -362,18 +341,22 @@ export default function Consultation() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label className="block text-gray-700 font-medium mb-2">
                     Project Description
                   </label>
                   <textarea
-                    {...register('projectDescription', { 
+                    {...register('projectDescription', {
                       required: 'Project description is required',
-                      minLength: { value: 20, message: 'Please provide more details about your project' }
+                      minLength: {
+                        value: 20,
+                        message: 'Please provide more details about your project'
+                      }
                     })}
                     rows="4"
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
-                      errors.projectDescription ? 'border-red-500' : 'border-gray-200'
-                    }`}
+                    className={classNames('w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors', {
+                      'border-red-500': errors.projectDescription,
+                      'border-gray-200': !errors.projectDescription
+                    })}
                     placeholder="Please describe your project, including any specific requirements or timeline considerations..."
                   ></textarea>
                   {errors.projectDescription && (
@@ -381,95 +364,51 @@ export default function Consultation() {
                   )}
                 </div>
 
-                <div className="pt-4">
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full btn-primary py-3 flex items-center justify-center space-x-2 group"
-                  >
-                    <span>Complete Booking</span>
-                    <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
-                  <p className="mt-4 text-sm text-gray-500 text-center">
-                    By clicking "Complete Booking", you agree to our Terms of Service and Privacy Policy.
-                  </p>
+                <div className="text-sm text-gray-600">
+                  By proceeding with the booking, you agree to our terms and conditions.
                 </div>
-              </motion.form>
+
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full btn-primary py-3 flex items-center justify-center space-x-2 group"
+                >
+                  <span>Complete Booking</span>
+                  <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </form>
             </motion.div>
           )}
 
           {/* Navigation Buttons */}
-          <div className="container max-w-4xl">
-            <div className="flex justify-between mt-12 px-8">
-              {step > 1 && (
-                <motion.button
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  whileHover={{ scale: 1.05, x: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setStep(step - 1)}
-                  className="flex items-center space-x-3 px-6 py-3 bg-white text-gray-700 rounded-lg border-2 border-gray-200 hover:border-primary hover:text-primary transition-all group shadow-md"
-                >
-                  <ChevronLeftIcon className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
-                  <span className="font-medium">Previous Step</span>
-                </motion.button>
-              )}
-              {step < 3 && (
-                <motion.button
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setStep(step + 1)}
-                  className="flex items-center space-x-3 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all group shadow-md ml-auto"
-                >
-                  <span className="font-medium">Next Step</span>
-                  <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section bg-cream">
-        <div className="container max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-2">
-                What happens after I book a consultation?
-              </h3>
-              <p>
-                You'll receive an email confirmation with meeting details and a
-                calendar invite. Our team will review your project details before
-                the meeting to make the most of our time together.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-2">
-                Is the consultation fee refundable?
-              </h3>
-              <p>
-                The consultation fee is non-refundable but will be credited
-                towards your project if you choose to move forward with our
-                services.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-2">
-                What should I prepare for the consultation?
-              </h3>
-              <p>
-                Have any relevant photos, plans, or inspiration images ready to
-                share. Also, prepare a list of your main requirements and any
-                specific questions you'd like to discuss.
-              </p>
-            </div>
+          <div className="flex justify-between mt-12 px-8">
+            {step > 1 && (
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                whileHover={{ scale: 1.05, x: -5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setStep(step - 1)}
+                className="flex items-center space-x-3 px-6 py-3 bg-white text-gray-700 rounded-lg border-2 border-gray-200 hover:border-primary hover:text-primary transition-all group shadow-md"
+              >
+                <ChevronLeftIcon className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
+                <span className="font-medium">Previous Step</span>
+              </motion.button>
+            )}
+            {step < 3 && (
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                whileHover={{ scale: 1.05, x: 5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setStep(step + 1)}
+                className="flex items-center space-x-3 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all group shadow-md ml-auto"
+              >
+                <span className="font-medium">Next Step</span>
+                <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            )}
           </div>
         </div>
       </section>
