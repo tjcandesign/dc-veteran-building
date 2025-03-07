@@ -219,8 +219,8 @@ function Home() {
       {/* Service Area */}
       <section className="section bg-cream">
         <div className="w-full px-4 xl:px-24 mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-6">Our Service Area</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
+          <h2 className="text-4xl font-bold mb-6">Our Service Area</h2>
+          <p className="text-xl text-gray-600 mb-12">
             Proudly serving Washington DC, Maryland, and Virginia with exceptional construction services.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
