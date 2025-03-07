@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckBadgeIcon, ShieldCheckIcon, TrophyIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { CheckBadgeIcon, ShieldCheckIcon, TrophyIcon, ArrowRightIcon, HomeIcon, BuildingOfficeIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
 import { memo } from 'react';
 
 function Home() {
@@ -41,7 +41,10 @@ function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="heading-3 mb-4">Residential Construction</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <HomeIcon className="h-8 w-8 text-primary" />
+                <h3 className="heading-3">Residential Construction</h3>
+              </div>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
@@ -65,7 +68,10 @@ function Home() {
               </Link>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="heading-3 mb-4">Commercial Projects</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <BuildingOfficeIcon className="h-8 w-8 text-primary" />
+                <h3 className="heading-3">Commercial Projects</h3>
+              </div>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
@@ -89,7 +95,10 @@ function Home() {
               </Link>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="heading-3 mb-4">Specialized Services</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <WrenchScrewdriverIcon className="h-8 w-8 text-primary" />
+                <h3 className="heading-3">Specialized Services</h3>
+              </div>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
