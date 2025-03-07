@@ -126,9 +126,9 @@ function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section bg-dark-brown text-white">
+      <section className="py-20 md:py-32 bg-dark-brown text-white">
         <div className="w-full px-4 xl:px-24 mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">The VBS Difference</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Veterans Building Service Difference</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
@@ -150,7 +150,7 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-primary text-white">
+      <section className="py-20 md:py-32 bg-primary text-white">
         <div className="w-full px-4 xl:px-24 mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
