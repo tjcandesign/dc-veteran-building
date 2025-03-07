@@ -137,9 +137,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} DC Veteran Building Services LLC. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-gray-400 text-sm">
+                &copy; {new Date().getFullYear()} DC Veteran Building Services LLC. All rights reserved.
+              </p>
+              <p className="text-gray-400 text-xs mt-1">
+                Branding and Site Design by Workhorse Collective
+              </p>
+            </div>
             <div className="flex items-center space-x-6">
               {/* Social Media Icons */}
               <a
