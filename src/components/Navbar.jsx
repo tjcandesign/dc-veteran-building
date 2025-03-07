@@ -40,12 +40,12 @@ export default function Navbar() {
                 <Link to="/" className="flex items-center group">
                   <img
                     className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
-                    src="/images/VBS Logo Horizontal White.svg"
+                    src="./images/VBS Logo Horizontal White.svg"
                     alt="VBS Logo"
                   />
                   <img
                     className="h-6 w-auto ml-3 transition-transform duration-300 group-hover:scale-110"
-                    src="/images/Flag.svg"
+                    src="./images/Flag.svg"
                     alt="American Flag"
                   />
                 </Link>

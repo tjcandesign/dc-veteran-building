@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -37,6 +37,7 @@ function App() {
             <Route path="/warranty" element={<Warranty />} />
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </main>
