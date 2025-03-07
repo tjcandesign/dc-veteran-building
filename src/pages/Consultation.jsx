@@ -30,7 +30,7 @@ export default function Consultation() {
   const consultationTypes = [
     {
       id: 'basic',
-      name: 'Basic Assessment',
+      name: 'Basic Project Review',
       price: 149,
       duration: '1 hour',
       description: 'Initial project assessment and rough estimation',
@@ -49,7 +49,7 @@ export default function Consultation() {
     },
     {
       id: 'detailed',
-      name: 'Detailed Scope Review',
+      name: 'Detailed Project Review',
       price: 299,
       duration: '2 hours',
       description: 'Comprehensive project planning and detailed estimation',
@@ -68,7 +68,7 @@ export default function Consultation() {
     },
     {
       id: 'full',
-      name: 'Full Design Consultation',
+      name: 'Full Design Review',
       price: 499,
       duration: '3 hours',
       description: 'Complete project design and planning service',
@@ -110,7 +110,7 @@ export default function Consultation() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-bold mb-6"
           >
-            Book a Consultation
+            Schedule Project Review
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +119,7 @@ export default function Consultation() {
             className="text-xl max-w-3xl"
           >
             Take the first step towards your construction project with a
-            professional consultation from our expert team.
+            professional project review from our expert team.
           </motion.p>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default function Consultation() {
           {step === 1 && (
             <div className="space-y-8 mt-12">
               <h2 className="text-3xl font-bold text-center mb-8">
-                Select Your Consultation Package
+                Select Your Project Review Package
               </h2>
               <div className="max-w-[1600px] mx-auto px-8">
                 <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-16">

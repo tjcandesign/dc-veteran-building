@@ -24,7 +24,7 @@ function Home() {
                 to="/consultation" 
                 className="btn-primary inline-flex items-center justify-center group text-lg w-full md:w-auto"
               >
-                Book a Consultation
+                Schedule Project Review
                 <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -161,7 +161,7 @@ function Home() {
             to="/consultation"
             className="bg-white text-primary px-8 py-3 rounded-lg text-lg font-bold hover:bg-opacity-90 transition-all"
           >
-            Schedule Your Consultation
+            Schedule Your Project Review
           </Link>
         </div>
       </section>
