@@ -8,6 +8,7 @@
   src: url('/fonts/BaseNeue-NormalRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
   src: url('/fonts/BaseNeue-CondensedBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @layer base {

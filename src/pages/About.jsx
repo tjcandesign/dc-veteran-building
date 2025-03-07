@@ -59,10 +59,20 @@ export default function About() {
         </div>
       </section>
 
+      {/* Team Image Section */}
+      <section className="relative h-[400px] overflow-hidden">
+        <img
+          src="/images/ourteam.jpg"
+          alt="DC Veteran Building Services Team"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30"></div>
+      </section>
+
       {/* Team Section */}
       <section className="section">
         <div className="container">
-          <h2 className="text-4xl font-bold text-center mb-12">Our Team</h2>
+          <h2 className="text-4xl font-bold mb-12">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div 
               className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[350px]"
