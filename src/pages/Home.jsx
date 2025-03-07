@@ -179,9 +179,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="https://images.unsplash.com/photo-1617695103171-8f9c25f014f7"
-                  alt="Washington DC"
-                  className="w-full h-48 object-cover rounded-lg"
+                  src="/images/dc-map.svg"
+                  alt="Washington DC Map"
+                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Washington DC</h3>
@@ -190,9 +190,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="https://images.unsplash.com/photo-1630859255236-b5f47402c963"
-                  alt="Maryland"
-                  className="w-full h-48 object-cover rounded-lg"
+                  src="/images/maryland-map.svg"
+                  alt="Maryland Map"
+                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Maryland</h3>
@@ -201,9 +201,9 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="https://images.unsplash.com/photo-1599769568487-b45c1e76b23c"
-                  alt="Virginia"
-                  className="w-full h-48 object-cover rounded-lg"
+                  src="/images/virginia-map.svg"
+                  alt="Virginia Map"
+                  className="w-full h-48 object-contain rounded-lg bg-gray-50 p-4"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4">Virginia</h3>
