@@ -419,7 +419,7 @@ export default function Consultation() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between mt-12 px-8">
+          <div className="flex justify-between mt-12">
             {step > 1 && (
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
