@@ -64,28 +64,60 @@ export default function About() {
         <div className="container">
           <h2 className="text-4xl font-bold text-center mb-12">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-dark-brown text-white p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-2">Project Operators</h3>
-                <p>Experienced professionals managing every aspect of your project.</p>
+            <div 
+              className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[350px]"
+              style={{
+                backgroundImage: `url('/images/project operators.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Project Operators</h3>
+                <p className="text-gray-100">Experienced professionals managing every aspect of your project.</p>
               </div>
             </div>
-            <div className="text-center">
-              <div className="bg-dark-brown text-white p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-2">Skilled Craftsmen</h3>
-                <p>Expert builders bringing your vision to life with precision.</p>
+            <div 
+              className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[350px]"
+              style={{
+                backgroundImage: `url('/images/skilled craftsmen.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Skilled Craftsmen</h3>
+                <p className="text-gray-100">Expert builders bringing your vision to life with precision.</p>
               </div>
             </div>
-            <div className="text-center">
-              <div className="bg-dark-brown text-white p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-2">Design Team</h3>
-                <p>Creative professionals helping shape your perfect space.</p>
+            <div 
+              className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[350px]"
+              style={{
+                backgroundImage: `url('/images/design team.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Design Team</h3>
+                <p className="text-gray-100">Creative professionals helping shape your perfect space.</p>
               </div>
             </div>
-            <div className="text-center">
-              <div className="bg-dark-brown text-white p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-2">Support Staff</h3>
-                <p>Dedicated team ensuring smooth project coordination.</p>
+            <div 
+              className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[350px]"
+              style={{
+                backgroundImage: `url('/images/support staff.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10 text-center h-full flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">Support Staff</h3>
+                <p className="text-gray-100">Dedicated team ensuring smooth project coordination.</p>
               </div>
             </div>
           </div>
