@@ -181,7 +181,10 @@ function Home() {
 
       {/* CTA Section */}
       <section className="relative min-h-[600px] flex items-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/start\ your\ project.png')] bg-cover bg-center opacity-20 mix-blend-multiply"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-multiply" 
+          style={{ backgroundImage: `url('/images/start your project.png')` }}
+        ></div>
         <div className="w-full px-4 xl:px-24 mx-auto text-center relative z-10">
           <h2 className="text-5xl font-bold mb-8">Ready to Start Your Project?</h2>
           <p className="text-2xl mb-10 max-w-2xl mx-auto">
