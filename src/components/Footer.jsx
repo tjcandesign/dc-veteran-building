@@ -115,7 +115,7 @@ export default function Footer() {
                 to="/consultation"
                 className="btn-primary inline-flex items-center justify-center w-full group"
               >
-                Book Consultation
+                Get Started
                 <svg
                   className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
