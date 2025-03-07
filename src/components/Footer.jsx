@@ -106,14 +106,9 @@ export default function Footer() {
 
           {/* Contact & CTA */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Get Started</h3>
-            <div>
-              <p className="mb-6 text-dark-brown">
-                Ready to transform your space? Book a consultation with our experts today.
-              </p>
-              <Link
+            <Link
                 to="/consultation"
-                className="btn-primary inline-flex items-center justify-center w-full group"
+                className="btn-primary inline-flex items-center justify-center w-full group mb-6"
               >
                 Get Started
                 <svg
@@ -130,7 +125,9 @@ export default function Footer() {
                   />
                 </svg>
               </Link>
-            </div>
+              <p className="text-gray-300">
+                Ready to transform your space? Book a consultation with our experts today.
+              </p>
           </div>
         </div>
 
