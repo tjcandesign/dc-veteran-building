@@ -98,7 +98,7 @@ export default function Consultation() {
 
       {/* Booking Process */}
       <section className="section">
-        <div className="container max-w-4xl">
+        <div className="container max-w-7xl">
           {/* Progress Steps */}
           <div className="flex justify-between mb-12">
             {[1, 2, 3].map((number) => (
@@ -140,7 +140,8 @@ export default function Consultation() {
               <h2 className="text-3xl font-bold text-center mb-8">
                 Select Your Consultation Package
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="max-w-[1600px] mx-auto px-8">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-16">
                 {consultationTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
@@ -149,7 +150,7 @@ export default function Consultation() {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-white p-8 rounded-xl shadow-lg border-2 hover:border-primary cursor-pointer transition-all group relative overflow-hidden"
+                    className="bg-white p-12 rounded-xl shadow-lg border-2 hover:border-primary cursor-pointer transition-all group relative overflow-hidden"
                     onClick={() => setStep(2)}
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
@@ -188,6 +189,7 @@ export default function Consultation() {
                     </div>
                   </motion.div>
                 ))}
+                </div>
               </div>
             </div>
           )}
