@@ -40,86 +40,116 @@ function Home() {
             Comprehensive construction solutions tailored to your needs, delivered with military precision and exceptional craftsmanship.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-6">
-                <HomeIcon className="h-12 w-12 text-primary mr-4" />
-                <h3 className="heading-3">Residential</h3>
+            <div 
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              style={{
+                backgroundImage: `url('/images/residential.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-8">
+                  <HomeIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Residential</h3>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Custom Home Building
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Home Additions
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Kitchen & Bath Remodels
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Basement Finishing
+                  </li>
+                </ul>
+                <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                </Link>
               </div>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Custom Home Building
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Home Additions
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Kitchen & Bath Remodels
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Basement Finishing
-                </li>
-              </ul>
-              <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold mt-6 hover:text-dark-brown transition-colors">
-                Learn More <ArrowRightIcon className="h-4 w-4 ml-1" />
-              </Link>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-6">
-                <BuildingOfficeIcon className="h-12 w-12 text-primary mr-4" />
-                <h3 className="heading-3">Commercial Projects</h3>
+            <div 
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              style={{
+                backgroundImage: `url('/images/Commerical.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-8">
+                  <BuildingOfficeIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Commercial Projects</h3>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Office Renovations
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Retail Spaces
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Restaurant Build-Outs
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Warehouse Facilities
+                  </li>
+                </ul>
+                <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                </Link>
               </div>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Office Renovations
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Retail Spaces
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Restaurant Build-Outs
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Warehouse Facilities
-                </li>
-              </ul>
-              <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold mt-6 hover:text-dark-brown transition-colors">
-                Learn More <ArrowRightIcon className="h-4 w-4 ml-1" />
-              </Link>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-6">
-                <WrenchScrewdriverIcon className="h-12 w-12 text-primary mr-4" />
-                <h3 className="heading-3">Specialized Services</h3>
+            <div 
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              style={{
+                backgroundImage: `url('/images/specialized services.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-8">
+                  <WrenchScrewdriverIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Specialized Services</h3>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Design Consultation
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Project Management
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Permit Processing
+                  </li>
+                  <li className="flex items-center text-white text-lg">
+                    <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
+                    Warranty Service
+                  </li>
+                </ul>
+                <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                </Link>
               </div>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Design Consultation
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Project Management
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Permit Processing
-                </li>
-                <li className="flex items-center">
-                  <CheckBadgeIcon className="h-5 w-5 text-primary mr-2" />
-                  Warranty Service
-                </li>
-              </ul>
-              <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold mt-6 hover:text-dark-brown transition-colors">
-                Learn More <ArrowRightIcon className="h-4 w-4 ml-1" />
-              </Link>
             </div>
           </div>
         </div>
