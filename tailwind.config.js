@@ -11,6 +11,10 @@ module.exports = {
         'dark-brown': '#34241d',
         'cream': '#f8f6e1',
       },
+      fontFamily: {
+        'base': ['BaseNeue-Normal', 'sans-serif'],
+        'heading': ['BaseNeue-CondensedBold', 'sans-serif'],
+      },
     },
   },
   plugins: [],

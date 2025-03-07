@@ -2,12 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font Faces */
+@font-face {
+  font-family: 'BaseNeue-Normal';
+  src: url('/fonts/BaseNeue-NormalRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BaseNeue-CondensedBold';
+  src: url('/fonts/BaseNeue-CondensedBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 @layer base {
   html {
     @apply antialiased;
   }
   body {
-    @apply text-dark-brown bg-cream;
+    @apply text-dark-brown bg-cream font-base;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
 
@@ -28,13 +46,13 @@
     @apply py-16 md:py-24;
   }
   .heading-1 {
-    @apply text-4xl md:text-5xl font-bold;
+    @apply text-4xl md:text-5xl font-bold font-heading;
   }
   .heading-2 {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply text-3xl md:text-4xl font-bold font-heading;
   }
   .heading-3 {
-    @apply text-2xl md:text-3xl font-bold;
+    @apply text-2xl md:text-3xl font-bold font-heading;
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-dark-brown bg-clip-text text-transparent;
