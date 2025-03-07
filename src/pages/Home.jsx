@@ -41,7 +41,7 @@ function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div 
-              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[650px]"
               style={{
                 backgroundImage: `url('/images/residential.png')`,
                 backgroundSize: 'cover',
@@ -49,12 +49,12 @@ function Home() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-center mb-8">
                   <HomeIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Residential</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center text-white text-lg">
                     <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
                     Custom Home Building
@@ -72,13 +72,13 @@ function Home() {
                     Basement Finishing
                   </li>
                 </ul>
-                <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group">
                   Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>
             <div 
-              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[650px]"
               style={{
                 backgroundImage: `url('/images/Commerical.png')`,
                 backgroundSize: 'cover',
@@ -86,12 +86,12 @@ function Home() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-center mb-8">
                   <BuildingOfficeIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Commercial Projects</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center text-white text-lg">
                     <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
                     Office Renovations
@@ -109,13 +109,13 @@ function Home() {
                     Warehouse Facilities
                   </li>
                 </ul>
-                <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group">
                   Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>
             <div 
-              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[500px]"
+              className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[650px]"
               style={{
                 backgroundImage: `url('/images/specialized services.png')`,
                 backgroundSize: 'cover',
@@ -123,12 +123,12 @@ function Home() {
               }}
             >
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-center mb-8">
                   <WrenchScrewdriverIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Specialized Services</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-4 flex-grow">
                   <li className="flex items-center text-white text-lg">
                     <CheckBadgeIcon className="h-6 w-6 text-primary mr-3" />
                     Design Consultation
@@ -146,7 +146,7 @@ function Home() {
                     Warranty Service
                   </li>
                 </ul>
-                <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group">
                   Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>

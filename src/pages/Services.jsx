@@ -79,7 +79,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[600px]"
+                className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[650px]"
                 style={{
                   backgroundImage: `url('/images/${service.title === 'Commercial Construction' ? 'Commerical' : 
                     service.title === 'Design Services' ? 'Design services' : 
@@ -93,11 +93,11 @@ export default function Services() {
                 <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
                 
                 {/* Content */}
-                <div className="relative z-10">
+                <div className="relative z-10 h-full flex flex-col">
                   <service.icon className="h-12 w-12 text-primary mb-8 group-hover:scale-110 transition-transform duration-300" />
                   <h2 className="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h2>
                   <p className="text-gray-100 mb-8 text-lg">{service.description}</p>
-                  <ul className="space-y-4 mb-16">
+                  <ul className="space-y-4 flex-grow">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center text-white text-lg">
                         <span className="h-2 w-2 bg-primary rounded-full mr-3"></span>
@@ -107,7 +107,7 @@ export default function Services() {
                   </ul>
                   <Link 
                     to="#" 
-                    className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors absolute bottom-12 group"
+                    className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group"
                   >
                     Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                   </Link>
