@@ -12,10 +12,10 @@ function Home() {
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay"></div>
         <div className="w-full px-4 xl:px-24 mx-auto relative">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-[1.1] md:leading-tight drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 md:mb-6 leading-[1] md:leading-tight drop-shadow-[0_8px_16px_rgba(0,0,0,0.8)]">
               <span className="text-primary">From Service to Structure:</span> <span className="text-white">Veteran-Built Excellence</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">
+            <p className="text-xl md:text-2xl mb-6 md:mb-8 text-gray-200 leading-snug md:leading-normal">
               Building dreams with military precision. Residential and commercial construction
               services delivered with discipline, integrity, and unmatched attention to detail.
             </p>
