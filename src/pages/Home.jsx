@@ -235,7 +235,7 @@ function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <img
-                  src="/images/virginia.png"
+                  src="/images/virginina.png"
                   alt="Virginia Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
