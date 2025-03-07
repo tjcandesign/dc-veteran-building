@@ -136,7 +136,7 @@ export default function Consultation() {
 
           {/* Step 1: Select Consultation Type */}
           {step === 1 && (
-            <div className="space-y-8">
+            <div className="space-y-8 mt-12">
               <h2 className="text-3xl font-bold text-center mb-8">
                 Select Your Consultation Package
               </h2>
