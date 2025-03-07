@@ -4,17 +4,41 @@
 
 /* Font Faces */
 @font-face {
-  font-family: 'BaseNeue-Normal';
+  font-family: 'BaseNeue';
   src: url('/fonts/BaseNeue-NormalRegular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'BaseNeue-CondensedBold';
+  font-family: 'BaseNeue';
+  src: url('/fonts/BaseNeue-NormalMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BaseNeue';
+  src: url('/fonts/BaseNeue-NormalSemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BaseNeue';
+  src: url('/fonts/BaseNeue-NormalBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BaseNeue-Condensed';
   src: url('/fonts/BaseNeue-CondensedBold.ttf') format('truetype');
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }

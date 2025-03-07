@@ -12,8 +12,8 @@ module.exports = {
         'cream': '#f8f6e1',
       },
       fontFamily: {
-        'base': ['BaseNeue-Normal', 'sans-serif'],
-        'heading': ['BaseNeue-CondensedBold', 'sans-serif'],
+        'base': ['BaseNeue', 'sans-serif'],
+        'heading': ['BaseNeue-Condensed', 'sans-serif'],
       },
     },
   },
