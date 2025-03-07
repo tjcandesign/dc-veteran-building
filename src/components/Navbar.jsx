@@ -65,12 +65,12 @@ export default function Navbar() {
 
               {/* Mobile menu button */}
               <div className="md:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-lg p-2 hover:bg-primary/10 hover:text-primary focus:outline-none transition-colors">
+                <Disclosure.Button className="inline-flex items-center justify-center focus:outline-none transition-colors">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6 transition-transform duration-300 rotate-90 hover:text-primary" aria-hidden="true" />
+                    <XMarkIcon className="block h-8 w-8 transition-transform duration-300 rotate-90 hover:text-primary" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6 transition-transform duration-300 hover:text-primary" aria-hidden="true" />
+                    <Bars3Icon className="block h-8 w-8 transition-transform duration-300 hover:text-primary" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
