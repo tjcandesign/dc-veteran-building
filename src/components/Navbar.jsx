@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <>
       <div className="h-24" /> {/* Spacer for fixed navbar */}
-      <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1a1310]/95 shadow-lg backdrop-blur-sm' : 'bg-[#1a1310]'} text-white border-b border-white/10`}>
+      <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark-brown/95 shadow-lg backdrop-blur-sm' : 'bg-dark-brown'} text-white border-b border-white/10`}>
       {({ open }) => (
         <>
           <div className="w-full px-4 xl:px-24 mx-auto">
@@ -50,16 +50,30 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`font-medium transition-colors ${isActive(item.href) ? 'text-primary' : 'hover:text-primary'}`}
+                    className={`font-medium transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,1)] ${isActive(item.href) ? 'text-primary' : 'hover:text-primary'}`}
                   >
                     {item.name}
                   </Link>
                 ))}
+                <div className="w-8" />
                 <Link
                   to="/consultation"
-                  className="btn-primary hover:scale-105 transform transition-transform"
+                  className="btn-primary inline-flex items-center justify-center group"
                 >
                   Book Consultation
+                  <svg
+                    className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
                 </Link>
               </div>
 
@@ -97,9 +111,22 @@ export default function Navbar() {
               <div className="pt-4">
                 <Link
                   to="/consultation"
-                  className="btn-primary block text-center w-full"
+                  className="btn-primary inline-flex items-center justify-center w-full group"
                 >
                   Book Consultation
+                  <svg
+                    className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
                 </Link>
               </div>
             </div>
