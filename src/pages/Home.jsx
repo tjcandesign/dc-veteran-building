@@ -133,17 +133,17 @@ function Home() {
             <div>
               <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Veteran-Owned</h3>
-              <p>Military values of discipline, leadership, and excellence in every project.</p>
+              <p>Our company is founded on military values, bringing discipline, leadership, and excellence to every project we undertake.</p>
             </div>
             <div>
               <CheckBadgeIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Quality Guaranteed</h3>
-              <p>Comprehensive warranty coverage and commitment to excellence.</p>
+              <p>We stand behind our work with comprehensive warranty coverage and an unwavering commitment to excellence.</p>
             </div>
             <div>
               <TrophyIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Award-Winning Service</h3>
-              <p>Recognized for outstanding craftsmanship and customer satisfaction.</p>
+              <p>Our team has been recognized for outstanding craftsmanship and consistently delivering exceptional customer satisfaction.</p>
             </div>
           </div>
         </div>

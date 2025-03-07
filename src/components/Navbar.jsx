@@ -28,16 +28,16 @@ export default function Navbar() {
   };
   return (
     <>
-      <div className="h-20" /> {/* Spacer for fixed navbar */}
+      <div className="h-24" /> {/* Spacer for fixed navbar */}
       <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1a1310]/95 shadow-lg backdrop-blur-sm' : 'bg-[#1a1310]'} text-white border-b border-white/10`}>
       {({ open }) => (
         <>
           <div className="w-full px-4 xl:px-24 mx-auto">
-            <div className="relative flex h-20 items-center justify-between">
+            <div className="relative flex h-24 items-center justify-between">
               <div className="flex items-center">
                 <Link to="/" className="flex items-center group">
                   <img
-                    className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                    className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
                     src="./images/VBS Logo Horizontal White.svg"
                     alt="VBS Logo"
                   />
@@ -45,7 +45,7 @@ export default function Navbar() {
               </div>
               
               {/* Desktop navigation */}
-              <div className="hidden md:flex md:items-center md:space-x-6">
+              <div className="hidden md:flex md:items-center md:space-x-6 ml-auto">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
