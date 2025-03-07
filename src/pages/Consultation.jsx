@@ -14,6 +14,19 @@ export default function Consultation() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const allFeatures = [
+    'Site visit and measurements',
+    'Project scope discussion',
+    'Cost estimation',
+    'Feasibility assessment',
+    'Material recommendations',
+    'Timeline planning',
+    'Design consultation',
+    '3D visualization concepts',
+    'Permit requirement review',
+    'Follow-up support'
+  ];
+
   const consultationTypes = [
     {
       id: 'basic',
@@ -21,11 +34,17 @@ export default function Consultation() {
       price: 149,
       duration: '1 hour',
       description: 'Initial project assessment and rough estimation',
-      includes: [
-        'Site visit and basic measurements',
-        'Preliminary project scope discussion',
-        'Rough cost estimation',
-        'Basic feasibility assessment'
+      features: [
+        { text: 'Basic site visit and measurements', included: true },
+        { text: 'Initial project scope discussion', included: true },
+        { text: 'Rough cost estimation', included: true },
+        { text: 'Basic feasibility assessment', included: true },
+        { text: 'Material recommendations', included: false },
+        { text: 'Timeline planning', included: false },
+        { text: 'Design consultation', included: false },
+        { text: '3D visualization concepts', included: false },
+        { text: 'Permit requirement review', included: false },
+        { text: 'Follow-up support', included: false }
       ]
     },
     {
@@ -34,12 +53,17 @@ export default function Consultation() {
       price: 299,
       duration: '2 hours',
       description: 'Comprehensive project planning and detailed estimation',
-      includes: [
-        'Detailed measurements and site analysis',
-        'In-depth project requirements review',
-        'Detailed cost breakdown',
-        'Timeline planning',
-        'Material recommendations'
+      features: [
+        { text: 'Detailed site visit and measurements', included: true },
+        { text: 'In-depth project scope discussion', included: true },
+        { text: 'Detailed cost estimation', included: true },
+        { text: 'Comprehensive feasibility assessment', included: true },
+        { text: 'Material recommendations', included: true },
+        { text: 'Timeline planning', included: true },
+        { text: 'Basic design consultation', included: true },
+        { text: '3D visualization concepts', included: false },
+        { text: 'Permit requirement review', included: false },
+        { text: 'Follow-up support', included: true }
       ]
     },
     {
@@ -48,13 +72,17 @@ export default function Consultation() {
       price: 499,
       duration: '3 hours',
       description: 'Complete project design and planning service',
-      includes: [
-        'Complete site analysis and measurements',
-        'Full project design consultation',
-        '3D visualization concepts',
-        'Detailed material selection',
-        'Comprehensive project plan',
-        'Permit requirement review'
+      features: [
+        { text: 'Complete site visit and measurements', included: true },
+        { text: 'Full project scope discussion', included: true },
+        { text: 'Comprehensive cost estimation', included: true },
+        { text: 'In-depth feasibility assessment', included: true },
+        { text: 'Detailed material recommendations', included: true },
+        { text: 'Comprehensive timeline planning', included: true },
+        { text: 'Full design consultation', included: true },
+        { text: '3D visualization concepts', included: true },
+        { text: 'Permit requirement review', included: true },
+        { text: 'Priority follow-up support', included: true }
       ]
     }
   ];
@@ -166,16 +194,23 @@ export default function Consultation() {
                       </div>
                       <p className="text-gray-600 mb-6">{type.description}</p>
                       <ul className="space-y-3">
-                        {type.includes.map((item, index) => (
+                        {type.features.map((feature, index) => (
                           <motion.li 
                             key={index} 
-                            className="flex items-center text-gray-700"
+                            className={classNames(
+                              'flex items-center',
+                              feature.included ? 'text-gray-700' : 'text-gray-400'
+                            )}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 + 0.2 }}
                           >
-                            <CheckIcon className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                            <span>{item}</span>
+                            {feature.included ? (
+                              <CheckIcon className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                            ) : (
+                              <div className="h-5 w-5 mr-3 flex-shrink-0 text-gray-300 font-bold">×</div>
+                            )}
+                            <span>{feature.text}</span>
                           </motion.li>
                         ))}
                       </ul>
