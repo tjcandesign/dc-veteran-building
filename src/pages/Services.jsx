@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { HomeIcon, BuildingOfficeIcon, WrenchScrewdriverIcon, SwatchIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, BuildingOfficeIcon, WrenchScrewdriverIcon, SwatchIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function Services() {
   const services = [
