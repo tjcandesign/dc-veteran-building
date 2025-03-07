@@ -32,7 +32,7 @@ export default function Navbar() {
       <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1a1310]/95 shadow-lg backdrop-blur-sm' : 'bg-[#1a1310]'} text-white border-b border-white/10`}>
       {({ open }) => (
         <>
-          <div className="container">
+          <div className="w-full px-4 mx-auto">
             <div className="relative flex h-20 items-center justify-between">
               <div className="flex items-center">
                 <Link to="/" className="flex items-center group">
@@ -79,7 +79,7 @@ export default function Navbar() {
 
           {/* Mobile menu */}
           <Disclosure.Panel className="md:hidden absolute top-full left-0 right-0 bg-[#1a1310]/95 backdrop-blur-sm shadow-lg transition-all duration-500 ease-in-out border-t border-white/10">
-            <div className="container py-4 space-y-2">
+            <div className="w-full px-4 mx-auto py-4 space-y-2">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
