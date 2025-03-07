@@ -3,15 +3,64 @@ import { useForm } from 'react-hook-form';
 import Calendar from 'react-calendar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ClipboardDocumentListIcon, CurrencyDollarIcon, ClockIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, CalendarIcon } from '@heroicons/react/24/outline';
+import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { stripePromise } from '../services/stripe';
+import { createConsultation, updateConsultationPayment } from '../services/consultation';
 import 'react-calendar/dist/Calendar.css';
 import classNames from 'classnames';
 
 // Custom calendar styles
 import './Calendar.css';
 
+// Payment form component
+function PaymentForm({ consultationId, amount }) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!stripe || !elements) return;
+
+    setProcessing(true);
+    const { error: submitError } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: `${window.location.origin}/consultation/success`,
+      },
+    });
+
+    if (submitError) {
+      setError(submitError.message);
+      setProcessing(false);
+    } else {
+      await updateConsultationPayment(consultationId, submitError.payment.id);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <PaymentElement />
+      {error && <div className="text-red-500 text-sm">{error}</div>}
+      <button
+        type="submit"
+        disabled={!stripe || processing}
+        className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium disabled:opacity-50"
+      >
+        {processing ? 'Processing...' : `Pay $${amount}`}
+      </button>
+    </form>
+  );
+}
+
 export default function Consultation() {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  const [consultationId, setConsultationId] = useState(null);
+  const [clientSecret, setClientSecret] = useState(null);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const allFeatures = [
@@ -92,10 +141,38 @@ export default function Consultation() {
     '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'
   ];
 
-  const onSubmit = (data) => {
-    console.log('Form submitted:', { ...data, selectedDate });
-    // Here we would typically handle the form submission
-    // and payment processing with Stripe
+  const onSubmit = async (data) => {
+    try {
+      // Create consultation record in Firebase
+      const consultationData = {
+        customer: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone
+        },
+        consultation: {
+          type: selectedType.id,
+          price: selectedType.price,
+          date: selectedDate.toISOString(),
+          time: selectedTime
+        },
+        projectDescription: data.projectDescription
+      };
+
+      // Save to Firebase
+      const id = await createConsultation(consultationData);
+      setConsultationId(id);
+
+      // Create payment intent
+      const secret = await createPaymentIntent(selectedType.price * 100, selectedType.id);
+      setClientSecret(secret);
+
+      setStep(4); // Move to payment step
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error appropriately
+    }
   };
 
   return (
@@ -129,7 +206,7 @@ export default function Consultation() {
         <div className="container max-w-7xl">
           {/* Progress Steps */}
           <div className="flex justify-center gap-4 mb-6">
-            {[1, 2, 3].map((number) => (
+            {[1, 2, 3, 4].map((number) => (
               <div
                 key={number}
                 className={classNames('flex items-center', {
@@ -146,9 +223,11 @@ export default function Consultation() {
                   {number}
                 </div>
                 <span className="ml-1.5 text-sm font-medium">
-                  {number === 1 ? 'Select Package' : number === 2 ? 'Choose Time' : 'Payment'}
+                  {number === 1 ? 'Select Package' : 
+                   number === 2 ? 'Choose Time' : 
+                   number === 3 ? 'Details' : 'Payment'}
                 </span>
-                {number < 3 && (
+                {number < 4 && (
                   <div className="w-12 h-0.5 mx-2 bg-gray-200">
                     <div
                       className={classNames('h-full bg-primary transition-all', {
@@ -179,7 +258,10 @@ export default function Consultation() {
                     whileHover={{ scale: 1.02, y: -5 }}
                     whileTap={{ scale: 0.98 }}
                     className="bg-white p-12 rounded-xl shadow-lg border-2 hover:border-primary cursor-pointer transition-all group relative overflow-hidden"
-                    onClick={() => setStep(2)}
+                    onClick={() => {
+                      setSelectedType(type);
+                      setStep(2);
+                    }}
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div className="relative">
@@ -257,7 +339,10 @@ export default function Consultation() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className="flex items-center justify-center space-x-2 px-4 py-3 border-2 border-gray-200 rounded-lg hover:border-primary hover:text-primary transition-colors"
-                        onClick={() => setStep(3)}
+                        onClick={() => {
+                          setSelectedTime(time);
+                          setStep(3);
+                        }}
                       >
                         <ClockIcon className="w-5 h-5" />
                         <span>{time}</span>
@@ -277,7 +362,7 @@ export default function Consultation() {
               exit={{ opacity: 0, y: -20 }}
             >
               <h2 className="text-3xl font-bold text-center mb-8">
-                Complete Your Booking
+                Your Information
               </h2>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -409,18 +494,55 @@ export default function Consultation() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full btn-primary py-3 flex items-center justify-center space-x-2 group"
+                  className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 group"
                 >
-                  <span>Complete Booking</span>
+                  <span>Continue to Payment</span>
                   <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </form>
             </motion.div>
           )}
 
+          {/* Step 4: Payment */}
+          {step === 4 && clientSecret && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-2xl mx-auto"
+            >
+              <h2 className="text-3xl font-bold text-center mb-8">
+                Complete Payment
+              </h2>
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold mb-4">Order Summary</h3>
+                  <div className="flex justify-between items-center py-2 border-b">
+                    <span>{selectedType.name}</span>
+                    <span className="font-bold">${selectedType.price}</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b">
+                    <span>Date</span>
+                    <span>{selectedDate.toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b">
+                    <span>Time</span>
+                    <span>{selectedTime}</span>
+                  </div>
+                </div>
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                  <PaymentForm 
+                    consultationId={consultationId} 
+                    amount={selectedType.price} 
+                  />
+                </Elements>
+              </div>
+            </motion.div>
+          )}
+
           {/* Navigation Buttons */}
           <div className="flex justify-between mt-12 max-w-[1600px] mx-auto px-8">
-            {step > 1 && (
+            {step > 1 && step !== 4 && (
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
