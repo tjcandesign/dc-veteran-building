@@ -77,7 +77,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className="relative p-8 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                className="relative p-12 rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 min-h-[600px]"
                 style={{
                   backgroundImage: `url('/images/${service.title === 'Commercial Construction' ? 'Commerical' : 
                     service.title === 'Design Services' ? 'Design services' : 
@@ -92,12 +92,12 @@ export default function Services() {
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  <service.icon className="h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
-                  <h2 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h2>
-                  <p className="text-gray-100 mb-6">{service.description}</p>
-                  <ul className="space-y-3">
+                  <service.icon className="h-16 w-16 text-primary mb-8 group-hover:scale-110 transition-transform duration-300" />
+                  <h2 className="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h2>
+                  <p className="text-gray-100 mb-8 text-lg">{service.description}</p>
+                  <ul className="space-y-4">
                     {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center text-white">
+                      <li key={itemIndex} className="flex items-center text-white text-lg">
                         <span className="h-2 w-2 bg-primary rounded-full mr-3"></span>
                         {item}
                       </li>
