@@ -180,14 +180,12 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section 
-        className="relative min-h-[600px] flex items-center bg-primary text-white overflow-hidden"
-        style={{
-          backgroundImage: 'url("/images/start your project.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
+      <section className="relative min-h-[600px] flex items-center bg-primary text-white overflow-hidden">
+        <img
+          src="/images/start your project.png"
+          alt="Start Your Project Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-primary opacity-80 mix-blend-multiply"></div>
         <div className="w-full px-4 xl:px-24 mx-auto text-center relative z-10">
           <h2 className="text-5xl font-bold mb-8">Ready to Start Your Project?</h2>
