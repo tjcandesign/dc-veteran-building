@@ -10,8 +10,9 @@
 /dist
 /build
 
-# Misc
+# Environment Variables
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local

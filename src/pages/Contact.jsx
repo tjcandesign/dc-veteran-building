@@ -45,7 +45,17 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
-            <form className="bg-white p-8 rounded-lg shadow-lg">
+            <form 
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              className="bg-white p-8 rounded-lg shadow-lg"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div hidden>
+                <input name="bot-field" />
+              </div>
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
               
               <div className="mb-6">
@@ -115,9 +125,9 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full btn-primary py-3"
+                className="w-full btn-primary py-3 flex items-center justify-center gap-2"
               >
-                Send Message
+                <span>Send Message</span>
               </button>
             </form>
           </div>

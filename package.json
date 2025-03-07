@@ -3,15 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Professional website for DC Veteran Building Services",
-  "homepage": "https://tjcandesign.github.io/dc-veteran-building/",
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf dist",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite",
-    "predeploy": "npm run clean && npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "vite"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
