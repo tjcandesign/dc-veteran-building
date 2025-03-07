@@ -131,38 +131,17 @@ function Home() {
           <h2 className="text-4xl font-bold text-center mb-12">Veterans Building Service Difference</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="relative mx-auto mb-4 w-16 h-16">
-                <div className="h-16 w-16 text-primary">
-                  <ShieldCheckIcon className="h-16 w-16" />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <CheckBadgeIcon className="h-8 w-8 text-white" />
-                </div>
-              </div>
+              <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Veteran-Owned</h3>
               <p>Our company is founded on military values, bringing discipline, leadership, and excellence to every project we undertake.</p>
             </div>
             <div>
-              <div className="relative mx-auto mb-4 w-16 h-16">
-                <div className="h-16 w-16 text-primary">
-                  <ShieldCheckIcon className="h-16 w-16" />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <CheckBadgeIcon className="h-8 w-8 text-white" />
-                </div>
-              </div>
+              <ShieldCheckIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Quality Guaranteed</h3>
               <p>We stand behind our work with comprehensive warranty coverage and an unwavering commitment to excellence.</p>
             </div>
             <div>
-              <div className="relative mx-auto mb-4 w-16 h-16">
-                <div className="h-16 w-16 text-primary">
-                  <TrophyIcon className="h-16 w-16" />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <CheckBadgeIcon className="h-8 w-8 text-white" />
-                </div>
-              </div>
+              <TrophyIcon className="h-16 w-16 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">Award-Winning Service</h3>
               <p>Our team has been recognized for outstanding craftsmanship and consistently delivering exceptional customer satisfaction.</p>
             </div>
