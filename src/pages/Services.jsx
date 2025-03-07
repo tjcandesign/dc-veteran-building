@@ -156,8 +156,9 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-primary text-white">
-        <div className="container text-center">
+      <section className="relative section bg-primary text-white py-32">
+        <div className="absolute inset-0 bg-[url('/images/start your project.png')] bg-cover bg-center opacity-20 mix-blend-multiply"></div>
+        <div className="container text-center relative z-10">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let's discuss how we can bring your vision to life with our expert construction services.
