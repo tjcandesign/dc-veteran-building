@@ -9,7 +9,7 @@ export default function Footer() {
         <img src="/images/hero-pattern.svg" alt="" className="w-full h-full object-cover" />
       </div>
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12 xl:grid-cols-[2fr,1fr,1fr,1fr] xl:gap-x-16">
           {/* Company Info */}
           <div>
             <Link to="/" className="inline-block mb-6">
@@ -38,6 +38,33 @@ export default function Footer() {
                 </a>
               </p>
             </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-xl font-bold mb-6">Services</h3>
+            <ul className="space-y-3 text-gray-300">
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                General Contracting
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                Custom Home Building
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                Home Additions
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                Specialized Renovations
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                Commercial Spaces
+              </li>
+            </ul>
           </div>
 
           {/* Quick Links */}
@@ -73,33 +100,6 @@ export default function Footer() {
                   <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
                   Warranty
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-xl font-bold mb-6">Services</h3>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                General Contracting
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                Custom Home Building
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                Home Additions
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                Specialized Renovations
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                Commercial Spaces
               </li>
             </ul>
           </div>
