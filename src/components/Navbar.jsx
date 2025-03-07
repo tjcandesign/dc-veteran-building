@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       <div className="h-20" /> {/* Spacer for fixed navbar */}
-      <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark-brown/95 shadow-lg backdrop-blur-sm' : 'bg-dark-brown'} text-white border-b border-white/10`}>
+      <Disclosure as="nav" className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1a1310]/95 shadow-lg backdrop-blur-sm' : 'bg-[#1a1310]'} text-white border-b border-white/10`}>
       {({ open }) => (
         <>
           <div className="container">
@@ -42,11 +42,6 @@ export default function Navbar() {
                     className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
                     src="./images/VBS Logo Horizontal White.svg"
                     alt="VBS Logo"
-                  />
-                  <img
-                    className="h-6 w-auto ml-3 transition-transform duration-300 group-hover:scale-110"
-                    src="./images/Flag.svg"
-                    alt="American Flag"
                   />
                 </Link>
               </div>
@@ -85,7 +80,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu */}
-          <Disclosure.Panel className="md:hidden absolute top-full left-0 right-0 bg-dark-brown/95 backdrop-blur-sm shadow-lg transition-all duration-500 ease-in-out border-t border-white/10">
+          <Disclosure.Panel className="md:hidden absolute top-full left-0 right-0 bg-[#1a1310]/95 backdrop-blur-sm shadow-lg transition-all duration-500 ease-in-out border-t border-white/10">
             <div className="container py-4 space-y-2">
               {navigation.map((item) => (
                 <Disclosure.Button
