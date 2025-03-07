@@ -35,8 +35,8 @@ function Home() {
       {/* Services Overview */}
       <section className="section bg-cream">
         <div className="w-full px-4 xl:px-24 mx-auto">
-          <h2 className="heading-2 text-center mb-4">Our Services</h2>
-          <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          <h2 className="heading-2 mb-4">Our Services</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl">
             Comprehensive construction solutions tailored to your needs, delivered with military precision and exceptional craftsmanship.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,7 +51,7 @@ function Home() {
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-8">
-                  <HomeIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <HomeIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Residential</h3>
                 </div>
                 <ul className="space-y-4">
@@ -72,8 +72,8 @@ function Home() {
                     Basement Finishing
                   </li>
                 </ul>
-                <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
-                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                <Link to="/services#residential" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -88,7 +88,7 @@ function Home() {
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-8">
-                  <BuildingOfficeIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <BuildingOfficeIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Commercial Projects</h3>
                 </div>
                 <ul className="space-y-4">
@@ -109,8 +109,8 @@ function Home() {
                     Warehouse Facilities
                   </li>
                 </ul>
-                <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
-                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                <Link to="/services#commercial" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -125,7 +125,7 @@ function Home() {
               <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-8">
-                  <WrenchScrewdriverIcon className="h-16 w-16 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
+                  <WrenchScrewdriverIcon className="h-12 w-12 text-primary mr-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Specialized Services</h3>
                 </div>
                 <ul className="space-y-4">
@@ -146,8 +146,8 @@ function Home() {
                     Warranty Service
                   </li>
                 </ul>
-                <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors group-hover:scale-105">
-                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2" />
+                <Link to="/services#specialized" className="inline-flex items-center text-primary font-semibold mt-8 hover:text-white transition-colors absolute bottom-12 group">
+                  Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </div>

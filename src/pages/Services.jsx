@@ -62,11 +62,13 @@ export default function Services() {
       {/* Hero Section */}
       <section className="bg-dark-brown text-white py-20">
         <div className="container">
-          <h1 className="text-5xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl max-w-3xl">
-            Comprehensive construction services delivered with military precision and
-            unmatched attention to detail.
-          </p>
+          <div className="w-full px-4 xl:px-24 mx-auto">
+            <h1 className="text-5xl font-bold mb-6">Our Services</h1>
+            <p className="text-xl max-w-3xl">
+              Comprehensive construction services delivered with military precision and
+              unmatched attention to detail.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -92,10 +94,10 @@ export default function Services() {
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  <service.icon className="h-16 w-16 text-primary mb-8 group-hover:scale-110 transition-transform duration-300" />
+                  <service.icon className="h-12 w-12 text-primary mb-8 group-hover:scale-110 transition-transform duration-300" />
                   <h2 className="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h2>
                   <p className="text-gray-100 mb-8 text-lg">{service.description}</p>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-16">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center text-white text-lg">
                         <span className="h-2 w-2 bg-primary rounded-full mr-3"></span>
@@ -103,6 +105,12 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
+                  <Link 
+                    to="#" 
+                    className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors absolute bottom-12 group"
+                  >
+                    Learn More <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
+                  </Link>
                 </div>
               </div>
             ))}
