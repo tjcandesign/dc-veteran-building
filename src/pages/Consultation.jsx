@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ClipboardDocumentListIcon, CurrencyDollarIcon, ClockIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, CalendarIcon } from '@heroicons/react/24/outline';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { stripePromise } from '../services/stripe';
+import { stripePromise, formatAmountForStripe } from '../config/stripe';
 import { createConsultation, updateConsultationPayment } from '../services/consultation';
 import 'react-calendar/dist/Calendar.css';
 import classNames from 'classnames';
@@ -27,15 +27,13 @@ function PaymentForm({ consultationId, amount }) {
     const { error: submitError } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/consultation/success`,
+        return_url: `${window.location.origin}/consultation/success?consultation_id=${consultationId}`,
       },
     });
 
     if (submitError) {
       setError(submitError.message);
       setProcessing(false);
-    } else {
-      await updateConsultationPayment(consultationId, submitError.payment.id);
     }
   };
 
@@ -61,6 +59,7 @@ export default function Consultation() {
   const [selectedType, setSelectedType] = useState(null);
   const [consultationId, setConsultationId] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
+  const [paymentError, setPaymentError] = useState(null);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const allFeatures = [
@@ -141,7 +140,35 @@ export default function Consultation() {
     '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'
   ];
 
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const createPaymentIntent = async (amountInCents, consultationType) => {
+    try {
+      const response = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount: amountInCents, consultationType }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create payment intent');
+      }
+
+      const data = await response.json();
+      return data.clientSecret;
+    } catch (error) {
+      console.error('Error creating payment intent:', error);
+      throw error;
+    }
+  };
+
   const onSubmit = async (data) => {
+    setSubmitting(true);
+    setSubmitError(null);
+
     try {
       // Create consultation record in Firebase
       const consultationData = {
@@ -157,7 +184,9 @@ export default function Consultation() {
           date: selectedDate.toISOString(),
           time: selectedTime
         },
-        projectDescription: data.projectDescription
+        projectDescription: data.projectDescription,
+        status: 'pending_payment',
+        createdAt: new Date().toISOString()
       };
 
       // Save to Firebase
@@ -165,13 +194,17 @@ export default function Consultation() {
       setConsultationId(id);
 
       // Create payment intent
-      const secret = await createPaymentIntent(selectedType.price * 100, selectedType.id);
+      const secret = await createPaymentIntent(formatAmountForStripe(selectedType.price), selectedType.id);
       setClientSecret(secret);
 
       setStep(4); // Move to payment step
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Handle error appropriately
+      setSubmitError(
+        'There was an error processing your request. Please try again or contact support.'
+      );
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -492,13 +525,19 @@ export default function Consultation() {
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 group"
+                  disabled={submitting}
+                  whileHover={{ scale: submitting ? 1 : 1.02 }}
+                  whileTap={{ scale: submitting ? 1 : 0.98 }}
+                  className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Continue to Payment</span>
-                  <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                  <span>{submitting ? 'Processing...' : 'Continue to Payment'}</span>
+                  {!submitting && (
+                    <ChevronRightIcon className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                  )}
                 </motion.button>
+                {submitError && (
+                  <p className="mt-4 text-red-500 text-sm text-center">{submitError}</p>
+                )}
               </form>
             </motion.div>
           )}
@@ -517,6 +556,17 @@ export default function Consultation() {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4">Order Summary</h3>
+                  {import.meta.env.DEV && (
+                    <div className="bg-gray-50 p-4 rounded-lg mb-4 text-sm">
+                      <p className="font-medium mb-2">Test Card Numbers:</p>
+                      <ul className="space-y-1 text-gray-600">
+                        <li>Success: 4242 4242 4242 4242</li>
+                        <li>Decline: 4000 0000 0000 0002</li>
+                        <li>Requires Auth: 4000 0025 0000 3155</li>
+                        <li>Use any future date, any 3 digits for CVC, and any 5 digits for postal code</li>
+                      </ul>
+                    </div>
+                  )}
                   <div className="flex justify-between items-center py-2 border-b">
                     <span>{selectedType.name}</span>
                     <span className="font-bold">${selectedType.price}</span>
@@ -530,12 +580,16 @@ export default function Consultation() {
                     <span>{selectedTime}</span>
                   </div>
                 </div>
-                <Elements stripe={stripePromise} options={{ clientSecret }}>
-                  <PaymentForm 
-                    consultationId={consultationId} 
-                    amount={selectedType.price} 
-                  />
-                </Elements>
+                {paymentError ? (
+                  <div className="text-red-500 text-center mb-4">{paymentError}</div>
+                ) : (
+                  <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <PaymentForm 
+                      consultationId={consultationId} 
+                      amount={selectedType.price} 
+                    />
+                  </Elements>
+                )}
               </div>
             </motion.div>
           )}
