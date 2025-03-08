@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Calendar from 'react-calendar';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -21,32 +21,67 @@ function PaymentForm({ consultationId, amount }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!stripe || !elements) return;
+    console.log('Starting payment submission');
+
+    if (!stripe || !elements) {
+      console.error('Stripe or Elements not initialized');
+      return;
+    }
 
     setProcessing(true);
-    const { error: submitError } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${window.location.origin}/consultation/success?consultation_id=${consultationId}`,
-      },
-    });
+    console.log('Processing payment for consultation:', { consultationId, amount });
 
-    if (submitError) {
-      setError(submitError.message);
+    try {
+      const { error: submitError } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: `${window.location.origin}/consultation/success?consultation_id=${consultationId}`,
+        },
+      });
+
+      if (submitError) {
+        console.error('Payment submission error:', submitError);
+        setError(submitError.message);
+        setProcessing(false);
+      } else {
+        console.log('Payment submission successful');
+      }
+    } catch (error) {
+      console.error('Unexpected payment error:', error);
+      setError('An unexpected error occurred. Please try again.');
       setProcessing(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <PaymentElement />
-      {error && <div className="text-red-500 text-sm">{error}</div>}
+      <PaymentElement options={{
+        layout: 'tabs',
+        paymentMethodOrder: ['card'],
+        defaultValues: {
+          billingDetails: {
+            name: '',
+            email: ''
+          }
+        }
+      }} />
+      {error && <div className="text-red-500 text-sm mt-4 p-3 bg-red-50 rounded-lg">{error}</div>}
       <button
         type="submit"
         disabled={!stripe || processing}
-        className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium disabled:opacity-50"
+        className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium disabled:opacity-50 hover:bg-primary/90 transition-colors"
       >
-        {processing ? 'Processing...' : `Pay $${amount}`}
+        {processing ? (
+          <div className="flex items-center justify-center space-x-2">
+            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>Processing payment...</span>
+          </div>
+        ) : (
+          <span>Pay ${amount}</span>
+        )}
       </button>
     </form>
   );
@@ -70,7 +105,7 @@ export default function Consultation() {
     'Material recommendations',
     'Timeline planning',
     'Design consultation',
-    '3D visualization concepts',
+    'Visualization concepts',
     'Permit requirement review',
     'Follow-up support'
   ];
@@ -90,7 +125,7 @@ export default function Consultation() {
         { text: 'Material recommendations', included: false },
         { text: 'Timeline planning', included: false },
         { text: 'Design consultation', included: false },
-        { text: '3D visualization concepts', included: false },
+        { text: 'Visualization concepts', included: false },
         { text: 'Permit requirement review', included: false },
         { text: 'Follow-up support', included: false }
       ]
@@ -109,7 +144,7 @@ export default function Consultation() {
         { text: 'Material recommendations', included: true },
         { text: 'Timeline planning', included: true },
         { text: 'Basic design consultation', included: true },
-        { text: '3D visualization concepts', included: false },
+        { text: 'Visualization concepts', included: false },
         { text: 'Permit requirement review', included: false },
         { text: 'Follow-up support', included: true }
       ]
@@ -128,7 +163,7 @@ export default function Consultation() {
         { text: 'Detailed material recommendations', included: true },
         { text: 'Comprehensive timeline planning', included: true },
         { text: 'Full design consultation', included: true },
-        { text: '3D visualization concepts', included: true },
+        { text: 'Visualization concepts', included: true },
         { text: 'Permit requirement review', included: true },
         { text: 'Priority follow-up support', included: true }
       ]
@@ -145,7 +180,9 @@ export default function Consultation() {
 
   const createPaymentIntent = async (amountInCents, consultationType) => {
     try {
-      const response = await fetch('/api/create-payment-intent', {
+      console.log('Creating payment intent:', { amountInCents, consultationType });
+      
+      const response = await fetch('/.netlify/functions/create-payment-intent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,14 +190,20 @@ export default function Consultation() {
         body: JSON.stringify({ amount: amountInCents, consultationType }),
       });
 
+      console.log('Payment intent response status:', response.status);
+      
       if (!response.ok) {
-        throw new Error('Failed to create payment intent');
+        const errorData = await response.json();
+        console.error('Payment intent error:', errorData);
+        throw new Error(errorData.error || 'Failed to create payment intent');
       }
 
       const data = await response.json();
+      console.log('Payment intent created successfully');
       return data.clientSecret;
     } catch (error) {
       console.error('Error creating payment intent:', error);
+      setPaymentError(error.message);
       throw error;
     }
   };
@@ -168,8 +211,22 @@ export default function Consultation() {
   const onSubmit = async (data) => {
     setSubmitting(true);
     setSubmitError(null);
+    setPaymentError(null);
 
     try {
+      console.log('Starting consultation submission:', {
+        type: selectedType?.id,
+        price: selectedType?.price,
+        date: selectedDate?.toISOString(),
+        time: selectedTime,
+        customer: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone
+        }
+      });
+      
       // Create consultation record in Firebase
       const consultationData = {
         customer: {
@@ -189,12 +246,17 @@ export default function Consultation() {
         createdAt: new Date().toISOString()
       };
 
+      console.log('Creating consultation record:', consultationData);
+      
       // Save to Firebase
       const id = await createConsultation(consultationData);
+      console.log('Consultation created with ID:', id);
       setConsultationId(id);
 
       // Create payment intent
+      console.log('Creating payment intent for amount:', selectedType.price);
       const secret = await createPaymentIntent(formatAmountForStripe(selectedType.price), selectedType.id);
+      console.log('Payment intent created successfully');
       setClientSecret(secret);
 
       setStep(4); // Move to payment step
@@ -207,6 +269,24 @@ export default function Consultation() {
       setSubmitting(false);
     }
   };
+
+  // Log component mount and state changes
+  useEffect(() => {
+    console.log('Consultation component mounted');
+    return () => console.log('Consultation component unmounted');
+  }, []);
+
+  useEffect(() => {
+    if (step) console.log('Step changed:', { step });
+  }, [step]);
+
+  useEffect(() => {
+    if (selectedType) console.log('Selected consultation type:', selectedType);
+  }, [selectedType]);
+
+  useEffect(() => {
+    if (clientSecret) console.log('Client secret received');
+  }, [clientSecret]);
 
   return (
     <div>

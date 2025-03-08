@@ -2,56 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font Faces */
-@font-face {
-  font-family: 'BaseNeue';
-  src: url('/fonts/BaseNeue-NormalRegular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'BaseNeue';
-  src: url('/fonts/BaseNeue-NormalMedium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'BaseNeue';
-  src: url('/fonts/BaseNeue-NormalSemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'BaseNeue';
-  src: url('/fonts/BaseNeue-NormalBold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'BaseNeue-Condensed';
-  src: url('/fonts/BaseNeue-CondensedBold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* System Fonts */
 
 @layer base {
   html {
     @apply antialiased;
   }
   body {
-    @apply text-dark-brown bg-cream font-base;
+    @apply text-dark-brown bg-cream font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-sans font-bold;
   }
 }
 
@@ -72,13 +33,13 @@
     @apply py-16 md:py-24;
   }
   .heading-1 {
-    @apply text-4xl md:text-5xl font-bold font-heading;
+    @apply text-4xl md:text-5xl font-bold font-sans tracking-tight;
   }
   .heading-2 {
-    @apply text-3xl md:text-4xl font-bold font-heading;
+    @apply text-3xl md:text-4xl font-bold font-sans tracking-tight;
   }
   .heading-3 {
-    @apply text-2xl md:text-3xl font-bold font-heading;
+    @apply text-2xl md:text-3xl font-bold font-sans tracking-tight;
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-dark-brown bg-clip-text text-transparent;

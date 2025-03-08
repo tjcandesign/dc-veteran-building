@@ -49,7 +49,7 @@ export default function Services() {
       items: [
         "Architectural Design",
         "Interior Design",
-        "3D Visualization",
+        "Visualization",
         "Space Planning",
         "Material Selection",
         "Color Consultation"

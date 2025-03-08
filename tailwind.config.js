@@ -12,8 +12,16 @@ module.exports = {
         'cream': '#f8f6e1',
       },
       fontFamily: {
-        'base': ['BaseNeue', 'sans-serif'],
-        'heading': ['BaseNeue-Condensed', 'sans-serif'],
+        sans: [
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif'
+        ],
       },
     },
   },
