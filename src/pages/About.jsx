@@ -5,12 +5,22 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-dark-brown text-white py-20">
-        <div className="container">
-          <h1 className="text-5xl font-bold mb-6">About DC Veteran Building Services</h1>
-          <p className="text-xl max-w-3xl">
-            A veteran-owned construction company bringing military precision and excellence
-            to every residential and commercial project in the DC metro area.
+      <section className="relative bg-dark-brown text-white min-h-[60vh] flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src="/images/ourteam.jpg"
+            alt="DC Veteran Building Services Team"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="container relative z-10">
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 max-w-4xl leading-tight">
+            Building Excellence with Military Precision
+          </h1>
+          <p className="text-xl md:text-2xl max-w-3xl text-gray-100">
+            A veteran-owned construction company bringing discipline, integrity, and
+            unmatched attention to detail to every project in the DC metro area.
           </p>
         </div>
       </section>
@@ -59,15 +69,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Image Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <img
-          src="/images/ourteam.jpg"
-          alt="DC Veteran Building Services Team"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30"></div>
-      </section>
+
 
       {/* Team Section */}
       <section className="section">

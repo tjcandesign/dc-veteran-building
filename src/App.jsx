@@ -11,6 +11,8 @@ const Gallery = lazy(() => import('./pages/Gallery'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
 const Warranty = lazy(() => import('./pages/Warranty'));
 const Consultation = lazy(() => import('./pages/Consultation'));
+const ConsultationDetails = lazy(() => import('./pages/ConsultationDetails'));
+const ConsultationSuccess = lazy(() => import('./pages/ConsultationSuccess'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 // Loading component
@@ -36,6 +38,8 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/warranty" element={<Warranty />} />
             <Route path="/consultation" element={<Consultation />} />
+            <Route path="/consultation/details" element={<ConsultationDetails />} />
+            <Route path="/consultation/success" element={<ConsultationSuccess />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

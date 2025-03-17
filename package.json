@@ -10,11 +10,14 @@
     "start": "vite"
   },
   "dependencies": {
+    "@firebase/firestore": "^4.7.9",
     "@headlessui/react": "^1.7.19",
     "@heroicons/react": "^2.2.0",
-    "@stripe/stripe-js": "^3.0.5",
+    "@stripe/react-stripe-js": "^3.3.0",
+    "@stripe/stripe-js": "^3.5.0",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
+    "firebase": "^11.4.0",
     "framer-motion": "^12.4.10",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",
@@ -27,8 +30,11 @@
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
+    "firebase-tools": "^13.33.0",
     "gh-pages": "^6.3.0",
+    "netlify-cli": "^19.0.2",
     "postcss": "^8.4.35",
+    "stripe": "^17.7.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.0"
   }

@@ -1,7 +1,17 @@
 import { loadStripe } from '@stripe/stripe-js';
 
 // Initialize Stripe with the publishable key
-export const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+const initializeStripe = () => {
+  const key = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+  if (!key) {
+    console.error('Stripe publishable key is missing');
+    throw new Error('Stripe configuration error');
+  }
+  console.log('Initializing Stripe...');
+  return loadStripe(key);
+};
+
+export const stripePromise = initializeStripe();
 
 // Stripe test card numbers for different scenarios
 export const testCards = {
@@ -15,5 +25,11 @@ export const testCards = {
 
 // Function to format amount for Stripe (converts dollars to cents)
 export const formatAmountForStripe = (amount) => {
-  return Math.round(amount * 100);
+  if (typeof amount !== 'number' || isNaN(amount) || amount <= 0) {
+    console.error('Invalid amount for Stripe:', amount);
+    throw new Error('Invalid payment amount');
+  }
+  const amountInCents = Math.round(amount * 100);
+  console.log('Formatted amount for Stripe:', { dollars: amount, cents: amountInCents });
+  return amountInCents;
 };
