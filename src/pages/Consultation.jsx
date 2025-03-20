@@ -7,9 +7,17 @@ export default function Consultation() {
 
   const handleBookConsultation = (type) => {
     const orderNumber = `DCVBS-${Date.now().toString(36).toUpperCase()}`;
+    const consultationData = {
+      name: type.name,
+      duration: type.duration,
+      price: type.price,
+      features: type.features,
+      description: type.description
+    };
+    
     navigate('/consultation/details', { 
       state: { 
-        consultationType: type,
+        consultationType: consultationData,
         orderNumber: orderNumber
       } 
     });
