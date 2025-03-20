@@ -231,7 +231,6 @@ function Home() {
                   alt="Washington DC Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Washington DC</h3>
               <p className="text-gray-600">Full service coverage throughout the District of Columbia</p>
@@ -243,7 +242,6 @@ function Home() {
                   alt="Maryland Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Maryland</h3>
               <p className="text-gray-600">Serving Montgomery and Prince George's Counties</p>
@@ -255,7 +253,6 @@ function Home() {
                   alt="Virginia Map"
                   className="w-full h-48 object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
               </div>
               <h3 className="text-2xl font-bold mb-4">Virginia</h3>
               <p className="text-gray-600">Available in Arlington, Alexandria, and Fairfax</p>
