@@ -59,7 +59,7 @@ export default function Consultation() {
     },
     {
       id: 'full',
-      name: 'Full Design Review',
+      name: 'Full Design Review & Project Plan',
       price: 499,
       duration: '3 hours',
       description: 'Complete veteran-led project design and planning',
