@@ -35,20 +35,41 @@ try {
 exports.handler = async function(event, context) {
   console.log('Received payment intent request');
 
+  // Enable CORS
+  const headers = {
+    'Access-Control-Allow-Origin': 'https://dcvbs.com',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS'
+  };
+
+  // Handle OPTIONS request (CORS preflight)
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 204,
+      headers
+    };
+  }
+
   // Validate HTTP method
   if (event.httpMethod !== 'POST') {
     console.warn('Invalid HTTP method:', event.httpMethod);
     return {
       statusCode: 405,
+      headers,
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
   try {
     // Parse and validate request body
-    let amount, consultationType;
+    let amount;
     try {
-      ({ amount, consultationType } = JSON.parse(event.body));
+      const body = JSON.parse(event.body);
+      amount = body.amount;
+
+      if (!amount || typeof amount !== 'number' || amount <= 0) {
+        throw new Error('Invalid amount');
+      }
     } catch (parseError) {
       console.error('Failed to parse request body:', parseError);
       return {
