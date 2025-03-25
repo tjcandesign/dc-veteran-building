@@ -4,11 +4,11 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Our Company', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Testimonials', href: '/testimonials' },
-  { name: 'Warranty', href: '/warranty' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Our Company', href: 'about' },
+  { name: 'Services', href: 'services' },
+  { name: 'Testimonials', href: 'testimonials' },
+  { name: 'Warranty', href: 'warranty' },
+  { name: 'Contact', href: 'contact' },
 ];
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
                 <Link to="/" className="flex items-center group">
                   <img
                     className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
-                    src="./images/VBS Logo Horizontal White.svg"
+                    src="/dc-veteran-building/images/VBS Logo Horizontal White.svg"
                     alt="VBS Logo"
                   />
                 </Link>
