@@ -33,8 +33,8 @@ export default function Footer() {
               </p>
               <p className="flex items-center">
                 <EnvelopeIcon className="h-5 w-5 mr-2 text-primary" />
-                <a href="mailto:help@dcveteranbuildingservices.com" className="hover:text-primary transition-colors">
-                  help@dcveteranbuildingservices.com
+                <a href="mailto:micah@dcvbs.com" className="hover:text-primary transition-colors">
+                  micah@dcvbs.com
                 </a>
               </p>
             </div>

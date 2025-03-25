@@ -27,7 +27,7 @@ Thank you!`;
 
   const encodedSubject = encodeURIComponent(emailSubject);
   const encodedBody = encodeURIComponent(emailBody);
-  const mailtoLink = `mailto:info@dcvbs.com?subject=${encodedSubject}&body=${encodedBody}`;
+  const mailtoLink = `mailto:micah@dcvbs.com?subject=${encodedSubject}&body=${encodedBody}`;
 
   return (
     <div className="min-h-screen bg-cream py-20">

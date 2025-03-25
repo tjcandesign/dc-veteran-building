@@ -31,8 +31,8 @@ export default function Contact() {
               <EnvelopeIcon className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-lg">
-                <a href="mailto:help@dcveteranbuildingservices.com" className="hover:text-primary transition-colors">
-                  help@dcveteranbuildingservices.com
+                <a href="mailto:micah@dcvbs.com" className="hover:text-primary transition-colors">
+                  micah@dcvbs.com
                 </a>
               </p>
             </div>
