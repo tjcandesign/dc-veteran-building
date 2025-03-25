@@ -32,15 +32,15 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="testimonials" element={<Testimonials />} />
-            <Route path="warranty" element={<Warranty />} />
-            <Route path="consultation" element={<Consultation />} />
-            <Route path="consultation/details" element={<ConsultationDetails />} />
-            <Route path="consultation/success" element={<ConsultationSuccess />} />
-            <Route path="contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/warranty" element={<Warranty />} />
+            <Route path="/consultation" element={<Consultation />} />
+            <Route path="/consultation/details" element={<ConsultationDetails />} />
+            <Route path="/consultation/success" element={<ConsultationSuccess />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
